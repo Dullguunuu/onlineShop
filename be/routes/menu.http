@@ -1,0 +1,33 @@
+###
+
+GET http://localhost:6060/api
+
+###
+
+GET  http://localhost:6060/api/menu
+
+###
+
+POST http://localhost:6060/api/menu
+Content-Type: application/json
+
+{
+    "menuName": "Contact",
+    "link": "/contact",
+    "position": "0"
+}
+
+###
+PUT http://localhost:6060/api/menu
+Content-Type: application/json
+
+{
+    "id": "ce8f1728-49ae-42df-8932-6c0ff293f0c7",
+    "menuName": "Contact",
+    "link": "/contact",
+    "position" : "1"
+}
+
+###
+
+DELETE http://localhost:6060/api/menu/46932ab4-cae1-4973-9f44-fbc25a3c1098
