@@ -1,0 +1,42 @@
+#title1 {
+  color: #0275d8;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+#title2 {
+  color: #0274d884;
+  font-size: 14px;
+}
+
+
+.selects li {
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.selects a {
+  text-decoration: none;
+  color: rgb(97, 96, 96);
+}
+
+.selects li:hover {
+  background: rgba(2, 116, 216, 0.227);
+  border-radius: 8px;
+  color: #0275d8;
+}
+
+.selects a:hover {
+  color: #0275d8;
+}
+
+/* Menus */
+
+/* .menuForm {
+  display: flex;
+  gap: 10px;
+} */
