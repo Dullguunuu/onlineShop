@@ -4,25 +4,39 @@ const { request } = require("http");
 const { parse } = require("path");
 const uuid = require("uuid")
 
-const dataFile = process.cwd() + "/data/menu.json"
+const dataFile = process.cwd() + "/data/menu.json";
 
-exports.getAll = (request, response) => {
+exports.get = (req, res) => {
+    const { id } = req.params
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
         if (readErr) {
-            return response.json({ status: false, message: readErr })
+            return res.json({ status: false, message: readErr })
+        }
+
+        const menuData = data ? JSON.parse(data) : []
+
+        const filteredMenu = menuData.filter((e) => e.id == id)
+        return res.json({ status: true, result: filteredMenu })
+    })
+}
+
+exports.getAll = (req, res) => {
+    fs.readFile(dataFile, "utf-8", (readErr, data) => {
+        if (readErr) {
+            return res.json({ status: false, message: readErr })
         }
 
         const savedData = data ? JSON.parse(data) : []
 
-        return response.json({ status: true, result: savedData })
+        return res.json({ status: true, result: savedData })
     })
 };
 
-exports.create = (request, response) => {
+exports.create = (request, res) => {
     const { menuName, link, position } = request.body;
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
         if (readErr) {
-            return response.json({ status: false, message: readErr })
+            return res.json({ status: false, message: readErr })
         }
 
         const parsedData = data ? JSON.parse(data) : []
@@ -32,18 +46,19 @@ exports.create = (request, response) => {
 
         fs.writeFile(dataFile, JSON.stringify(parsedData), (writeErr) => {
             if (writeErr) {
-                return response.json({ status: false, message: writeErr })
+                return res.json({ status: false, message: writeErr })
             }
-            return response.json({ status: true, result: parsedData })
+            return res.json({ status: true, result: parsedData })
         })
     })
 };
 
-exports.update = (request, response) => {
-    const { id, menuName, link, position } = request.body;
+exports.update = (req, res) => {
+    const { menuName, link, position } = req.body;
+    const { id } = req.params
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
         if (readErr) {
-            return response.json({ status: false, message: readErr })
+            return res.json({ status: false, message: readErr })
         }
         const parsedData = data ? JSON.parse(data) : [];
 
@@ -57,18 +72,18 @@ exports.update = (request, response) => {
 
         fs.writeFile(dataFile, JSON.stringify(updateData), (writeErr) => {
             if (writeErr) {
-                return response.json({ status: false, message: writeErr });
+                return res.json({ status: false, message: writeErr });
             }
-            return response.json({ status: true, result: updateData })
+            return res.json({ status: true, result: updateData })
         })
     })
 }
 
-exports.delete = (request, response) => {
-    const { id } = request.params;
+exports.delete = (req, res) => {
+    const { id } = req.params;
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
         if (readErr) {
-            return response.json({ status: false, message: readErr })
+            return res.json({ status: false, message: readErr })
         }
 
         const parsedData = data ? JSON.parse(data) : []
@@ -77,9 +92,9 @@ exports.delete = (request, response) => {
 
         fs.writeFile(dataFile, JSON.stringify(deletedData), (writeErr) => {
             if (writeErr) {
-                return response.json({ status: false, message: writeErr })
+                return res.json({ status: false, message: writeErr })
             }
-            return response.json({ status: true, message: deletedData })
+            return res.json({ status: true, result: deletedData })
         })
     })
 }

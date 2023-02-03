@@ -25,10 +25,9 @@ export default function AdminLayout() {
                         <li><i class="bi bi-globe"></i><Link to="/admin/sellers" >Sellers</Link></li>
                     </ul>
                 </div>
-                <div className='col-md-9 bg-light p-4'>
+                <div className="col-md-9 bg-light p-4">
                     <Outlet />
                 </div>
-
             </div>
         </div >
     )
