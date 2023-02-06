@@ -1,0 +1,35 @@
+###
+
+GET http://localhost:6060/api
+
+###
+
+GET  http://localhost:6060/api/brand
+
+###
+
+GET http://localhost:6060/api/brand/94cdc714-8864-40b9-9ab9-eb546a5d2354
+
+###
+
+POST http://localhost:6060/api/brand
+Content-Type: application/json
+
+{
+    "brandName": "Samsung",
+    "brandLink": "/samsung"
+}
+
+### 
+
+PUT http://localhost:6060/api/brand/994047f7-ade8-4d3d-b13a-e0f72d7ba640
+Content-Type: application/json
+
+{
+    "brandName": "LG",
+    "brandLink": "/lg"
+}
+
+###
+
+DELETE http://localhost:6060/api/brand/373b9422-8eda-4c78-ab2b-b5683950f29a

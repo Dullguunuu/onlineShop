@@ -1,0 +1,42 @@
+###
+
+GET http://localhost:6060/api
+
+###
+
+GET  http://localhost:6060/api/user
+
+###
+
+GET http://localhost:6060/api/user
+
+###
+
+POST http://localhost:6060/api/user
+Content-Type: application/json
+
+{
+    "firstName": "hi",
+    "lastName": "ahua",
+    "email": "asjh",
+    "phone": "asj",
+    "password": "ak",
+}
+
+###
+
+PUT http://localhost:6060/api/user
+Content-Type: application/json
+
+{
+    "id": "",
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "phone": "",
+    "password": "",
+}
+
+###
+
+DELETE http://localhost:6060/api/user/4c1d2975-40ea-414c-8727-dca8b8982e15

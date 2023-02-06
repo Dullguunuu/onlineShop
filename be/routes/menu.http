@@ -34,4 +34,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:6060/api/menu/4c1d2975-40ea-414c-8727-dca8b8982e15
+DELETE http://localhost:6060/api/menu/e7172b4e-71f1-4a45-bb38-5ccd37ed3aeb

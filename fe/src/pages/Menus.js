@@ -107,7 +107,7 @@ export default function Menus() {
                 <tbody>
                     {tableData.map((e, index) => (
                         <tr>
-                            <td scope='row'>{index + 1}</td>
+                            <td>{index + 1}</td>
                             <td>{e.menuName}</td>
                             <td>{e.link}</td>
                             <td className='d-flex gap-2'>

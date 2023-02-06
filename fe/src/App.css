@@ -34,9 +34,34 @@
   color: #0275d8;
 }
 
-/* Menus */
 
-/* .menuForm {
-  display: flex;
-  gap: 10px;
-} */
+/* Add user */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.modal-body {
+  padding: 44px 56px;
+  width: 500px;
+  border-radius: 5px;
+  margin: 100px auto;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  position: relative;
+}
+
+.modal-title {
+  font-size: 32px;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 30px;
+}

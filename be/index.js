@@ -5,6 +5,8 @@ const app = express()
 
 const menuRouter = require("./routes/menu.route.js")
 const categoryRouter = require("./routes/category.route.js")
+const brandRouter = require("./routes/brand.route.js")
+const userRouter = require("./routes/user.route.js")
 
 const fs = require("fs");
 const { request } = require("http");
@@ -14,6 +16,8 @@ app.use(express.json())
 
 app.use("/api", menuRouter)
 app.use("/api", categoryRouter)
+app.use("/api", brandRouter)
+app.use("/api", userRouter)
 
 app.get("/api", (request, response) => {
     response.json({ message: "Welcome Rest API" })

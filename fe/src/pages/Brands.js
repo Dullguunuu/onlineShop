@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Categories() {
+export default function Brands() {
 
-    const cateInit = {
-        categoryName: "",
-        categoryLink: "",
+    const brandInit = {
+        brandName: "",
+        brandLink: "",
     }
 
-    const [cateItem, setCateItem] = useState(cateInit);
+    const [brandItem, setBrandItem] = useState(brandInit);
     const [tableData, setTableData] = useState([]);
     const [isedited, setIsEdited] = useState(false);
-    const [categoryId, setCategoryId] = useState("")
+    const [brandId, setBrandId] = useState("")
 
     function getData() {
-        fetch("http://localhost:6060/api/category")
+        fetch("http://localhost:6060/api/brand")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result)
@@ -25,44 +25,44 @@ export default function Categories() {
         getData()
     }, [])
 
-    function handleEditCategory({ id, categoryName, categoryLink }) {
-        setCategoryId(id);
+    function handleEditBrand({ id, brandName, brandLink }) {
+        setBrandId(id);
         setIsEdited(true);
-        setCateItem({ categoryName: categoryName, categoryLink: categoryLink })
+        setBrandItem({ brandName: brandName, brandLink: brandLink })
     }
 
-    function handleCategorySubmit(e) {
+    function handleBrandSubmit(e) {
         e.preventDefault();
 
         isedited ?
-            fetch(`http://localhost:6060/api/category/${categoryId}`, {
+            fetch(`http://localhost:6060/api/brand/${brandId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(cateItem)
+                body: JSON.stringify(brandItem)
             })
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
                     setIsEdited(false);
-                    setCateItem(cateInit);
+                    setBrandItem(brandInit);
                     getData();
                 })
             :
-            fetch("http://localhost:6060/api/category", {
+            fetch("http://localhost:6060/api/brand", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(cateItem)
+                body: JSON.stringify(brandItem)
             })
                 .then((res) => res.json)
                 .then((data) => {
                     console.log(data)
                     getData()
-                    setCateItem(cateInit)
+                    setBrandItem(brandInit)
                 })
     }
 
-    function handleDelCategory(id) {
-        fetch(`http://localhost:6060/api/category/${id}`, {
+    function handleDelBrand(id) {
+        fetch(`http://localhost:6060/api/brand/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
@@ -74,12 +74,12 @@ export default function Categories() {
 
     return (
         <div>
-            <form className='row g-2' onSubmit={handleCategorySubmit}>
+            <form className='row g-2' onSubmit={handleBrandSubmit}>
                 <div className='col-4'>
-                    <input placeholder='Category Name' className='form-control' value={cateItem.categoryName} onChange={(e) => setCateItem({ ...cateItem, categoryName: e.target.value })} />
+                    <input placeholder='Brand Name' className='form-control' value={brandItem.brandName} onChange={(e) => setBrandItem({ ...brandItem, brandName: e.target.value })} />
                 </div>
                 <div className='col-4'>
-                    <input placeholder='Category Link' className='form-control' value={cateItem.categoryLink} onChange={(e) => setCateItem({ ...cateItem, categoryLink: e.target.value })} />
+                    <input placeholder='Brand Link' className='form-control' value={brandItem.brandLink} onChange={(e) => setBrandItem({ ...brandItem, brandLink: e.target.value })} />
                 </div>
                 <div className='col-auto'>
                     <button className='btn btn-primary'>+ Create new</button></div>
@@ -88,7 +88,7 @@ export default function Categories() {
                 <thead>
                     <tr>
                         <th scope='col'>#</th>
-                        <th scope='col'>Menu Name</th>
+                        <th scope='col'>Brand Name</th>
                         <th scope='col'>Link</th>
                         <th scope='col'>Action Buttons</th>
                     </tr>
@@ -97,11 +97,11 @@ export default function Categories() {
                     {tableData.map((e, index) => (
                         <tr>
                             <td>{index + 1}</td>
-                            <td>{e.categoryName}</td>
-                            <td>{e.categoryLink}</td>
+                            <td>{e.brandName}</td>
+                            <td>{e.brandLink}</td>
                             <td className='d-flex gap-2'>
-                                <button className='btn btn-outline-success' onClick={() => handleEditCategory(e)}>Edit</button>
-                                <button className='btn btn-outline-danger' onClick={() => handleDelCategory(e.id)}>Delete</button>
+                                <button className='btn btn-outline-success' onClick={() => handleEditBrand(e)}>Edit</button>
+                                <button className='btn btn-outline-danger' onClick={() => handleDelBrand(e.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}
