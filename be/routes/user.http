@@ -16,25 +16,24 @@ POST http://localhost:6060/api/user
 Content-Type: application/json
 
 {
-    "firstName": "hi",
-    "lastName": "ahua",
-    "email": "asjh",
-    "phone": "asj",
-    "password": "ak",
-}
-
-###
-
-PUT http://localhost:6060/api/user
-Content-Type: application/json
-
-{
-    "id": "",
     "firstName": "",
     "lastName": "",
     "email": "",
     "phone": "",
-    "password": "",
+    "password": ""
+}
+
+###
+
+PUT http://localhost:6060/api/user/9cc9b77a-6f30-4eec-ac57-1b9912374d98
+Content-Type: application/json
+
+{
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "phone": "",
+    "password": ""
 }
 
 ###

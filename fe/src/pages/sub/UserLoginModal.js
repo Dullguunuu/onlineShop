@@ -4,7 +4,7 @@ export default function UserLoginModal({ modal, setModal }) {
     const modalDispStyle = modal ? "block" : "none";
     return (
         <div className='modal' style={{ display: modalDispStyle }}>
-            <div className='modal-body'>
+            <div className='userModalBody'>
                 <form>
                     <div className='p-2'>
                         <label className='form-label'>First name</label>

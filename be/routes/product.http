@@ -1,0 +1,55 @@
+###
+
+GET http://localhost:6060/api
+
+###
+
+GET  http://localhost:6060/api/product
+
+###
+
+GET http://localhost:6060/api/product
+
+###
+
+POST http://localhost:6060/api/product
+Content-Type: application/json
+
+{
+    "productName": "",
+    "categoryId": "",
+    "brandId": "",
+    "price": "",
+    "salePercent": "",
+    "description": "",
+    "quantity": "",
+    "thumbImage": "",
+    "images": {},
+    "updatedDate": "",
+    "createdUser": "",
+    "updatedUser": ""
+}
+
+###
+
+PUT http://localhost:6060/api/product/c2ee634b-1553-4533-a0de-cea38f51626d
+Content-Type: application/json
+
+{
+    "productName": "a",
+    "categoryId": "",
+    "brandId": "",
+    "price": "",
+    "salePercent": "",
+    "description": "",
+    "quantity": "",
+    "thumbImage": "",
+    "images": {},
+    "createdDate": "",
+    "createdUser": "",
+    "updatedUser": ""
+}
+
+###
+
+DELETE http://localhost:6060/api/product/cff7f829-415f-4440-9b7e-df58f3207548
