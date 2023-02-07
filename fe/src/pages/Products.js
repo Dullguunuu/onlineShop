@@ -14,7 +14,8 @@ export default function Products() {
         thumbImage: "",
         images: [],
         createdUser: "",
-        updatedUser: ""
+        updatedUser: "",
+        // createDate: ""
     }
 
     const [productItem, setProductItem] = useState(productInit)

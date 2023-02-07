@@ -2,16 +2,24 @@ import React from 'react'
 
 export default function UserLoginModal({ modal, setModal }) {
     const modalDispStyle = modal ? "block" : "none";
+
+
     return (
         <div className='modal' style={{ display: modalDispStyle }}>
-            <div className='userModalBody'>
+            <div className='userModalBody' >
                 <form>
-                    <div className='p-2'>
-                        <label className='form-label'>First name</label>
-                        <input className='form-control' type="text" />
+                    <div className='row'>
+                        <div className='col-6 p-2'>
+                            <label className='form-label'>First name</label>
+                            <input className='form-control' type="text" />
+                        </div>
+                        <div className='col-6 p-2'>
+                            <label className='form-label'>Last name</label>
+                            <input className='form-control' type="text" />
+                        </div>
                     </div>
                     <div className='p-2'>
-                        <label className='form-label'>Last name</label>
+                        <label className='form-label'>Username</label>
                         <input className='form-control' type="text" />
                     </div>
                     <div className='p-2'>
@@ -27,11 +35,14 @@ export default function UserLoginModal({ modal, setModal }) {
                         <input className='form-control' type="password" />
                         <p className='pt-2'>Password must contain </p>
                         <ul>
-
                             <li>at least 8 characters</li>
                             <li>at least one uppercase and lowercase letter</li>
                             <li>at least one number and letter</li>
                         </ul>
+                    </div>
+                    <div className='p-2'>
+                        <label className='form-label'>Password Confirmation</label>
+                        <input className='form-control' type="password" />
                     </div>
                     <div className='d-flex gap-2 justify-content-end'>
                         <button className='btn btn-primary'>Create User</button>

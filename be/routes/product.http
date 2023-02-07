@@ -4,7 +4,7 @@ GET http://localhost:6060/api
 
 ###
 
-GET  http://localhost:6060/api/product/c3bba0b3-f28b-4238-a593-fef44f5aa6c2
+GET  http://localhost:6060/api/product
 
 ###
 
@@ -32,7 +32,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:6060/api/product/c2ee634b-1553-4533-a0de-cea38f51626d
+PUT http://localhost:6060/api/product/3a30d8ee-f1b6-49b3-bc2d-49f23673d9b7
 Content-Type: application/json
 
 {
