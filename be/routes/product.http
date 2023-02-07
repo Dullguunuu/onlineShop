@@ -4,7 +4,7 @@ GET http://localhost:6060/api
 
 ###
 
-GET  http://localhost:6060/api/product
+GET  http://localhost:6060/api/product/c3bba0b3-f28b-4238-a593-fef44f5aa6c2
 
 ###
 
@@ -24,7 +24,7 @@ Content-Type: application/json
     "description": "",
     "quantity": "",
     "thumbImage": "",
-    "images": {},
+    "images": [],
     "updatedDate": "",
     "createdUser": "",
     "updatedUser": ""
@@ -44,7 +44,7 @@ Content-Type: application/json
     "description": "",
     "quantity": "",
     "thumbImage": "",
-    "images": {},
+    "images": [],
     "createdDate": "",
     "createdUser": "",
     "updatedUser": ""

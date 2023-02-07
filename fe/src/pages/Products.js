@@ -12,7 +12,7 @@ export default function Products() {
         description: "",
         quantity: "",
         thumbImage: "",
-        images: {},
+        images: [],
         createdUser: "",
         updatedUser: ""
     }
@@ -35,14 +35,18 @@ export default function Products() {
         getData()
     }, [])
 
-    function handleEditMenu({ id, position, menuName, link }) {
+    function handleEditProduct({ id, productName, categoryId, brandId, price, salePercent, description, quantity, thumbImage, images, createdUser, updatedUser }) {
         setEditId(id)
         setIsEdited(true)
-        setProductItem({ position: position, menuName: menuName, link: link })
+        setProductModal(!productModal)
+        setProductItem({ productName, categoryId, brandId, price, salePercent, description, quantity, thumbImage, images, createdUser, updatedUser })
     }
 
     function handleProductSubmit(e) {
         e.preventDefault();
+
+        console.log(productItem);
+
         isEdited ?
             fetch(`http://localhost:6060/api/product/${editId}`, {
                 method: "PUT",
@@ -53,6 +57,7 @@ export default function Products() {
                 .then((data) => {
                     console.log(data);
                     setIsEdited(false);
+                    setProductModal(!productModal)
                     setProductItem(productInit);
                     getData();
                 })
@@ -65,14 +70,25 @@ export default function Products() {
                 .then((res) => res.json)
                 .then((data) => {
                     console.log(data)
-                    getData()
+                    setProductModal(!productModal)
                     setProductItem(productInit)
+                    getData();
                 })
     }
 
+    function handleDelProduct(id) {
+        fetch(`http://localhost:6060/api/product/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                getData();
+            })
+    }
 
     return (
-        <div>
+        <div className='p-4'>
             <button className='btn btn-primary' onClick={() => setProductModal(!productModal)}>+ Add Product</button>
             <ProductLoginModal
                 productModal={productModal}
@@ -88,25 +104,29 @@ export default function Products() {
                 setEditId={setEditId}
                 handleProductSubmit={handleProductSubmit}
             />
-            <div className='row row-cols-4 gap-4'>
+            <div className='row row-cols-4 gap-4 p-2'>
                 {
                     tableData.map((e, index) => (
-                        <div className="card col p-0 m-0" style={{ width: "18rem" }}>
-                            <img />
+                        <div className="card col p-2" style={{ width: "15rem" }}>
+                            <img src={e.thumbImage} alt="" style={{ objectFit: "fill" }} />
                             <div className="card-body">
                                 <h5 className="card-title">{e.productName}</h5>
-                                <p className="card-text">{e.description}</p>
-                                <div className='d-flex justify-content-between'>
+                                <p className="card-text text-truncate">{e.description}</p>
+                                <p style={{ color: e.quantity > 0 ? "green" : "red" }}>{e.quantity > 0 ? "in stock" : "out of stock"}</p>
+                                <div className='d-flex justify-content-between align-items-baseline'>
                                     <p className='fw-bold'>${e.price}</p>
-                                    <button className='badge bg-success'>{e.discount}%</button>
+                                    {e.salePercent != 0 && <p className='fw-bold text-success'>-{e.salePercent}%</p>}
                                 </div>
-                                <button className='btn btn-outline-secondary'><i class="bi bi-pencil"></i>Edit</button>
-                                <button className='btn btn-outline-danger'><i class="bi bi-trash3"></i>Delete</button>
+                                <div className='d-flex gap-2 justify-content-between'>
+                                    <button className='btn btn-outline-secondary' onClick={() => handleEditProduct(e)}><i className="bi bi-pencil me-2" ></i>Edit</button>
+                                    <button className='btn btn-outline-secondary text-danger' onClick={() => handleDelProduct(e.id)}><i className="bi bi-trash3 me-2"></i>Delete</button>
+                                </div >
                             </div >
                         </div >
                     ))
                 }
+
             </div >
-        </div >
+        </div>
     )
 }
