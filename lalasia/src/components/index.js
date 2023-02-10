@@ -4,5 +4,5 @@ export { NavBar } from "./NavBar";
 export { Product } from "./Product";
 export { Article } from "./Articles";
 export { Benefits } from "./Benefits";
-export { OutProduct } from "./OutProduct";
+export { OurProduct } from "./OurProduct";
 export { Testimonial } from "./Testimonials";

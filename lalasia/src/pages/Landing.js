@@ -6,7 +6,7 @@ import {
   Benefits,
   Product,
   Article,
-  OutProduct,
+  OurProduct,
   Testimonial,
 } from "../components";
 import { LandingPage } from "../data/pagesData";
@@ -29,7 +29,7 @@ export const Landing = () => {
       ))}
       <Benefits />
       {/* <Product /> */}
-      <OutProduct />
+      <OurProduct />
       <Testimonial />
       {/* <Article /> */}
       {/* <div className="join we me">

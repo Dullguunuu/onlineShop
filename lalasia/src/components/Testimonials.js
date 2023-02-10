@@ -49,31 +49,33 @@ const testimonials = [
 export const Testimonial = () => {
   return (
     <div className="testimonials">
-      <span>Testimonials</span>
-      <h1>What our customer say</h1>
-      <span>
-        Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim
-        placerat nisi, adipiscing mauris non purus parturient.
-      </span>
+      <div className="testimonialsDesc col-md-7">
+        <span className="testimonialsTitle">Testimonials</span>
+        <h1>What our customer say</h1>
+        <span style={{ color: "#AFADB5" }}>
+          Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim
+          placerat nisi, adipiscing mauris non purus parturient.
+        </span>
+      </div>
       <div className="pidback">
-        <div className="pidbackCard">
+        <div className="pidbackCard d-flex gap-4 overflow-auto">
           {testimonials.map((e, index) => (
-            <div key={index}>
+            <div key={index} className="col-12 col-md-5 feedbackCard p-4 mt-5">
               <img key={e._id} src={e.img} alt="check img" />
-              <span>{e.text}</span>
+              <p style={{ color: "#AFADB5" }} className="mt-4 mb-4">{e.text}</p>
               {e.user.map((avatar, index) => (
-                <div key={index}>
+                <div key={index} className="flex justify-content-between">
                   <div>
                     <img
                       key={avatar._id}
                       src={avatar.avatar}
                       alt="avatar img"
                     />
-                    <span>{avatar.name}</span>
+                    <span className="ms-3">{avatar.name}</span>
                   </div>
                   <div>
                     <img src={avatar.star} alt="star" />
-                    <span>{avatar.starNumber}</span>
+                    <span className="ms-2">{avatar.starNumber}</span>
                   </div>
                 </div>
               ))}

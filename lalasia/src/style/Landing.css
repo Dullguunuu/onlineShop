@@ -43,8 +43,6 @@
     border: none;
 }
 
-
-
 .searchBtn {
     width: 170px;
     height: 54px;
@@ -52,5 +50,46 @@
     font-size: 18px;
     padding: 15px 46px;
     background-color: #518581;
+    border: none;
+}
+
+.ourProductSubTitle {
+    color: #FFB23F;
+    font-size: 18px;
+}
+
+.ourProductTitle {
+    color: #151411;
+    font-size: 44px;
+}
+
+.ourProductDesc {
+    color: #AFADB5;
+}
+
+.statisticNumbers {
+    color: #151411;
+    font-size: 2.8rem;
+}
+
+.numbersDesc {
+    font-size: 18px;
+    color: #AFADB5;
+}
+
+/* Testimonials */
+
+.testimonialsTitle {
+    color: #FFB23F;
+    font-size: 18px;
+}
+
+.testimonialsDesc {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.feedbackCard {
+    box-shadow: 0px 4px 100px rgba(175, 173, 181, 0.1);
     border: none;
 }
