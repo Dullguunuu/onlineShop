@@ -4,7 +4,7 @@ GET http://localhost:6060/api
 
 ###
 
-GET  http://localhost:6060/api/product
+GET  http://localhost:6060/api/product/7b7a60e3-ac0c-44a9-923a-5e1e26990fd8
 
 ###
 

@@ -36,7 +36,7 @@ export const Product = () => {
               style={{ height: "360px", width: "394px" }}
             />
             {/* <span>{e.category}</span> */}
-            <a href="/product/card" className="productDetail-a">{e.productName}</a>
+            <a href={`/product/card/${e.id}`} className="productDetail-a">{e.productName}</a>
             <p style={{ color: "#AFADB5" }}>{e.description}</p>
             <p>${e.price}</p>
           </div>
