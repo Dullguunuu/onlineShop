@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #F9F9F9;
 }
 
 .flex {
@@ -95,7 +96,64 @@ body {
   font-size: 40px;
 }
 
-/* 
-.landingPage {
-  position: relative;
-} */
+.productPageSearch {
+  background: white;
+  height: 84px;
+}
+
+.productPageInput {
+  border: none;
+  width: 80%;
+}
+
+.filterProductBtn {
+  background: white;
+  color: black;
+  height: 84px;
+}
+
+.servicNumbers {
+  color: #518581;
+  font-size: 64px;
+}
+
+.servicTitle {
+  font-size: 1.5rem;
+}
+
+.servicDesc {
+  color: #AFADB5;
+}
+
+.statisticNumbers {
+  color: #151411;
+  font-size: 2.75rem;
+  margin: 0;
+}
+
+.numbersDesc {
+  font-size: 18px;
+  color: #AFADB5;
+}
+
+.aboutUsSubTitle {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.aboutUsSubTitleDesc {
+  color: #AFADB5;
+  font-weight: 500;
+}
+
+.teamMembersName {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.teamMembersPosition {
+  font-weight: 500;
+  color: #AFADB5;
+}

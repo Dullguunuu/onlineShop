@@ -40,7 +40,7 @@ export const Footer = () => {
       <div>
         <div className="logoStyle flex align-items">
           <img src={require("../assets/icon-img/logo.png")} alt="logo" />
-          <div>Lalasia</div>
+          <h5 className="fw-bold">Lalasia</h5>
         </div>
         <div className="footerText">
           <span>
@@ -52,10 +52,10 @@ export const Footer = () => {
       <div className="footerCategory ">
         <div className="footerCategorys flex space-between">
           {footerData.map((data, index) => (
-            <div className="flex flex-d align-start space-around" key={index}>
-              <h2>{data.Title}</h2>
+            <div className="" key={index}>
+              <h5 className="fw-bold mb-3">{data.Title}</h5>
               {data.category.map((categorys, index) => (
-                <span key={index}>{categorys.name}</span>
+                <p key={index}>{categorys.name}</p>
               ))}
             </div>
           ))}

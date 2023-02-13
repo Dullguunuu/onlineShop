@@ -1,6 +1,7 @@
 import "../App.css"
 import { nanoid } from "nanoid";
 import { ServicesPage } from "../data/pagesData";
+import { BsArrowRight } from "react-icons/bs"
 
 
 const Servic = [
@@ -44,49 +45,52 @@ const Servic = [
 
 export const Services = () => {
   return (
-    <div className="flex flex-d align-items justify-content">
-      {ServicesPage.map((data) => (
-        <>
-          <div className="containerTitle flex flex-d align-items justify-content">
-            <h1 className="bigTitle">{data.title}</h1>
-            <span className="bigText">{data.text}</span>
-          </div>
-          <img src={data.img} alt="" />
-        </>
-      ))}
-      <div>
-        {Servic.map((e) => (
+    <div>
+      <div className="flex flex-d align-items justify-content">
+        {ServicesPage.map((data) => (
           <>
-            <h1>{e.number}</h1>
-            <h4>{e.title}</h4>
-            <span>{e.text}</span>
+            <div className="containerTitle flex flex-d align-items justify-content">
+              <h1 className="bigTitle">{data.title}</h1>
+              <span className="bigText">{data.text}</span>
+            </div>
+            <img src={data.img} alt="" />
           </>
         ))}
       </div>
-      <div>
-        <div>
-          <div>
-            <span className="textCategory">Protofolia</span>
-            <h2>Amazing projext we've done before</h2>
+      <hr className="mt-5 mb-5" />
+      <div className="flex flex-wrap row g-5">
+        {Servic.map((e) => (
+          <div className="col-12 col-lg-4">
+            <h1 className="servicNumbers">{e.number}</h1>
+            <h4 className="servicTitle fw-bold mt-3">{e.title}</h4>
+            <p className="servicDesc">{e.text}</p>
           </div>
-          <div>
-            <span>
+        ))}
+      </div>
+      <div className="mt-5">
+        <span className="textCategory">Portfolio</span>
+        <div className="flex justify-content-between">
+          <h3 className="col-5" style={{ fontSize: "2.75rem", fontWeight: "700" }}>Amazing projext we've done before</h3>
+          <div className="col-5">
+            <p style={{ color: "#AFADB5" }}>
               Pellentesque etiam blandit in tincidunt at donec. Eget ipsum
               dignissim placerat nisi, adipiscing mauris non.
-            </span>
-            <span>View Portofolia</span>
+            </p>
+            <p style={{ color: "#518581" }}>View Portfolio</p>
           </div>
         </div>
-        <div>
+        <div className="mt-5 flex justify-content-between">
           <img src={require("../assets/page/Services/Services1.png")} alt="" />
-          <img src={require("../assets/page/Services/Services2.png")} alt="" />
-          <img src={require("../assets/page/Services/Services3.png")} alt="" />
+          <div className="d-flex flex-column justify-content-between">
+            <img src={require("../assets/page/Services/Services2.png")} alt="" />
+            <img src={require("../assets/page/Services/Services3.png")} alt="" />
+          </div>
         </div>
       </div>
-      <div>
-        <h1>Are you interested work with us? </h1>
-        <button>Let's Talk</button>
+      <div className="mt-5 mb-5 flex justify-content-between">
+        <h1 className="col-4">Are you interested work with us? </h1>
+        <button>Let's Talk <BsArrowRight /></button>
       </div>
-    </div>
+    </div >
   );
 };
