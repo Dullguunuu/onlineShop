@@ -13,6 +13,18 @@ body {
   background-color: #F9F9F9;
 }
 
+.productDetail-a {
+  text-decoration: none;
+  color: black;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.productDetail-a:hover {
+  color: #518581;
+}
+
 .flex {
   display: flex;
 }

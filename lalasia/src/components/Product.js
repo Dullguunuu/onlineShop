@@ -1,29 +1,47 @@
 import "../style/Product.css";
-import { productCard } from "../data/productCard";
+import { useState, useEffect } from "react";
 
 export const Product = () => {
+  const [productData, setProductData] = useState([])
+
+  function getData() {
+    fetch("http://localhost:6060/api/product")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.result);
+        setProductData(data.result)
+      })
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
   return (
     <>
-      <span>Product</span>
-      <h2>Our popular product</h2>
-      <span>
-        Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim
-        placerat nisi, adipiscing mauris non purus parturient.
-      </span>
-      <div className="products flex ">
-        {productCard.map((e, index) => (
-          <div className="productCard" key={index}>
+      <div className="col-12 col-md-6 text-center mt-5">
+        <p style={{ color: "#FFB23F" }}>Product</p>
+        <h2>Our popular product</h2>
+        <p style={{ color: "#AFADB5" }} className="mb-5 mt-3">
+          Pellentesque etiam blandit in tincidunt at donec. Eget ipsum dignissim
+          placerat nisi, adipiscing mauris non purus parturient.
+        </p>
+      </div>
+      <div className="products flex gap-4">
+        <i class="bi bi-arrow-left-circle-fill"></i>
+        {productData.map((e, index) => (
+          <div className="" key={index}>
             <img
-              src={e.img}
+              src={e.thumbImage}
               alt=""
               style={{ height: "360px", width: "394px" }}
             />
-            <span>{e.category}</span>
-            <h2>{e.title}</h2>
-            <span>{e.text}</span>
-            <span>{e.price}</span>
+            {/* <span>{e.category}</span> */}
+            <a href="/product/card" className="productDetail-a">{e.productName}</a>
+            <p style={{ color: "#AFADB5" }}>{e.description}</p>
+            <p>${e.price}</p>
           </div>
         ))}
+        <i class="bi bi-arrow-right-circle-fill"></i>
       </div>
     </>
   );

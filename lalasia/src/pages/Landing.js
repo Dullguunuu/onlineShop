@@ -28,7 +28,7 @@ export const Landing = () => {
         </div>
       ))}
       <Benefits />
-      {/* <Product /> */}
+      <Product />
       <OurProduct />
       <Testimonial />
       {/* <Article /> */}

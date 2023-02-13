@@ -1,4 +1,5 @@
-import { productCard } from "../data/productCard";
+import { useState, useEffect } from "react";
+// import { productCard } from "../data/productCard";
 import "../App.css";
 import { ProductsPage } from "../data/pagesData";
 import ProductCard from "../components/ProductCard";
@@ -6,6 +7,22 @@ import { RiSearch2Line } from 'react-icons/ri';
 import { BiFilterAlt } from "react-icons/bi"
 
 export const Products = () => {
+
+  const [productData, setProductData] = useState([])
+
+  function getData() {
+    fetch("http://localhost:6060/api/product")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.result);
+        setProductData(data.result)
+      })
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   return (
     <div>
       <div className="flex flex-d align-items justify-content">
@@ -41,8 +58,8 @@ export const Products = () => {
           </div>
         </div> */}
         <div className="productCard">
-          {productCard.map((item) => (
-            <ProductCard item={item} key={item._id} />
+          {productData.map((item) => (
+            <ProductCard item={item} key={item.id} />
           ))}
         </div>
       </div>
