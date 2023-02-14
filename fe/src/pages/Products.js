@@ -94,15 +94,8 @@ export default function Products() {
             <ProductLoginModal
                 productModal={productModal}
                 setProductModal={setProductModal}
-                productInit={productInit}
                 productItem={productItem}
                 setProductItem={setProductItem}
-                tableData={tableData}
-                setTableData={setTableData}
-                isEdited={isEdited}
-                setIsEdited={setIsEdited}
-                editId={editId}
-                setEditId={setEditId}
                 handleProductSubmit={handleProductSubmit}
             />
             <div className='row row-cols-4 gap-4 p-2'>

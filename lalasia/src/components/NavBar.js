@@ -2,23 +2,12 @@ import { nanoid } from "nanoid";
 import "../style/Navbar.css";
 import { Link } from "react-router-dom";
 import { menuItems } from "../data/menuData";
+import { useState } from "react";
+import CreateAccountModal from "./CreateAccountModal";
 
 export const NavBar = ({ current, setCurrent }) => {
+  const [modal, setModal] = useState(false)
   console.log(current);
-
-  const menuIcons = [
-    {
-      _id: nanoid(),
-      img: require("../assets/icon-img/bag.png"),
-      link: "product",
-    },
-    {
-      _id: nanoid(),
-      img: require("../assets/icon-img/user.png"),
-      link: "about-us",
-    },
-  ];
-
   return (
     // <header className="flex align-items space-between">
     <div className="navContainer">
@@ -55,9 +44,9 @@ export const NavBar = ({ current, setCurrent }) => {
         </div>
         <div className="flex align-items space-between gap-3 btn-group">
           <img src={require("../assets/icon-img/bag.png")} alt="" />
-          <div className="dropdown">
+          <div className="dropdown-menu-end">
             <img src={require("../assets/icon-img/user.png")} alt="" type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" />
-            <form className="dropdown-menu p-4">
+            <form className="dropdown-menu p-4" style={{ width: "300px" }}>
               <div className="mb-3">
                 <label for="dropdownFormEmail" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="dropdownFormEmail" placeholder="email@example.com" />
@@ -66,14 +55,18 @@ export const NavBar = ({ current, setCurrent }) => {
                 <label for="dropdownFormPassword" className="form-label" > Password</label >
                 <input type="password" className="form-control" id="dropdownFormPassword" placeholder="Password" />
               </div >
-              <button type="submit" className="btn" style={{ background: "#518581" }}> Sign in</button >
+              <button type="submit" className="btn col-12" style={{ background: "#518581", color: "white" }}> Sign in</button >
+              <hr className="mt-3 mb-3" />
+              <button type="submit" className="btn btn-outline-secondary col-12" onClick={() => setModal(!modal)}> Create Account</button >
             </form >
           </div >
-
-
         </div >
       </nav >
       <hr />
+      <CreateAccountModal
+        modal={modal}
+        setModal={setModal}
+      />
     </div >
   );
 };

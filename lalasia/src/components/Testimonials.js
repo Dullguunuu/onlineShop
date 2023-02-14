@@ -48,7 +48,7 @@ const testimonials = [
 
 export const Testimonial = () => {
   return (
-    <div className="testimonials">
+    <div className="testimonials mt-5">
       <div className="testimonialsDesc col-md-7">
         <span className="testimonialsTitle">Testimonials</span>
         <h1>What our customer say</h1>

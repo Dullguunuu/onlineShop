@@ -56,6 +56,16 @@ export const Products = () => {
     })
   }
 
+  function fromLowestPrice() {
+    const byLowest = [...productData].sort((a, b) => a.price - b.price)
+    setProductData(byLowest)
+  }
+
+  function fromHighestPrice() {
+    const byHighest = [...productData].sort((a, b) => b.price - a.price)
+    setProductData(byHighest)
+  }
+
   return (
     <div>
       <div className="flex flex-d align-items justify-content">
@@ -79,7 +89,27 @@ export const Products = () => {
           />
           <button onClick={searchProduct}>Find Now</button>
         </div>
-        <button className="filterProductBtn col"><BiFilterAlt style={{ fontSize: "30px" }} />Filter</button>
+        <div className="dropdown col">
+          <button className="filterProductBtn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <BiFilterAlt style={{ fontSize: "30px" }} /> Filter
+          </button>
+          <ul className="dropdown-menu dropdown-menu-end p-4" style={{ width: "300px" }}>
+            <p className="fw-bold">By Price:</p>
+            <li><a class="dropdown-item" href="#" onClick={fromLowestPrice}><i className="bi bi-arrow-up me-2"></i>from lowest</a></li>
+            <li onClick={fromHighestPrice}><a className="dropdown-item" href="#"><i className="bi bi-arrow-down me-2"></i>from highest</a></li>
+            <p className="fw-bold mt-2">By Category:</p>
+            <li className="form-check">
+              {categories.map((e) =>
+                <>
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <label className="form-check-label" for="flexCheckDefault">
+                    {e.categoryName}
+                  </label>
+                </>
+              )}
+            </li>
+          </ul>
+        </div>
       </div>
       <div>
         <div className="flex align-items-end gap-3 mt-5">

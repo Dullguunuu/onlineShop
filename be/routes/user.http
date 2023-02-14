@@ -18,8 +18,10 @@ Content-Type: application/json
 {
     "firstName": "",
     "lastName": "",
+    "username": "",
     "email": "",
     "phone": "",
+    "image": "",
     "password": ""
 }
 
@@ -31,8 +33,10 @@ Content-Type: application/json
 {
     "firstName": "",
     "lastName": "",
+    "username": "",
     "email": "",
     "phone": "",
+    "image": "",
     "password": ""
 }
 

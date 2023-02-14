@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
-export default function UserLoginModal({ productModal, setProductModal, productInit, productItem, setProductItem, tableData, setTableData, isEdited, setIsEdited, editId, setEditId, handleProductSubmit }) {
+export default function UserLoginModal({ productModal, setProductModal, productItem, setProductItem, handleProductSubmit }) {
     const modalDispStyle = productModal ? "block" : "none";
 
     const [categoryData, setCategoryData] = useState([])

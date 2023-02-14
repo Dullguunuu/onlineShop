@@ -2,7 +2,7 @@ const fs = require("fs");
 const { parse } = require("path");
 const uuid = require("uuid");
 
-const dataFile = process.cwd() + "/data/user.json"
+const dataFile = process.cwd() + "/data/customer.json"
 
 exports.get = (req, res) => {
     const { id } = req.params
@@ -11,10 +11,10 @@ exports.get = (req, res) => {
             return res.json({ status: false, message: readErr })
         }
 
-        const userData = data ? JSON.parse(data) : [];
+        const customerData = data ? JSON.parse(data) : []
 
-        const filteredUser = userData.filter((e) => e.id == id)
-        return res.json({ status: true, result: filteredUser })
+        const filteredCustomer = customerData.filter((e) => e.id == id)
+        return res.json({ status: true, result: filteredCustomer })
     })
 }
 
@@ -30,7 +30,7 @@ exports.getAll = (req, res) => {
 }
 
 exports.create = (req, res) => {
-    const { firstName, lastName, username, email, phone, image, password } = req.body;
+    const { firstName, lastName, username, phone, email, password } = req.body;
     console.log(req.body)
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
         if (readErr) {
@@ -39,7 +39,7 @@ exports.create = (req, res) => {
 
         const parsedData = data ? JSON.parse(data) : [];
 
-        const newObj = { id: uuid.v4(), firstName, lastName, username, email, phone, image, password };
+        const newObj = { id: uuid.v4(), firstName, lastName, username, phone, email, password };
         parsedData.push(newObj)
 
         fs.writeFile(dataFile, JSON.stringify(parsedData), (writeErr) => {
@@ -52,7 +52,7 @@ exports.create = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    const { firstName, lastName, username, email, phone, image, password } = req.body;
+    const { firstName, lastName, username, phone, email, password } = req.body;
     const { id } = req.params;
 
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
@@ -62,12 +62,12 @@ exports.update = (req, res) => {
 
         const parsedData = data ? JSON.parse(data) : [];
 
-        const updateData = parsedData.map((userObj) => {
-            if (userObj.id == id) {
-                return { ...userObj, firstName, username, lastName, email, phone, image, password }
+        const updateData = parsedData.map((customerObj) => {
+            if (customerObj.id == id) {
+                return { ...customerObj, firstName, lastName, username, phone, email, password }
             }
             else {
-                return userObj
+                return customerObj
             }
         })
 
@@ -102,3 +102,4 @@ exports.delete = (req, res) => {
         })
     })
 }
+
