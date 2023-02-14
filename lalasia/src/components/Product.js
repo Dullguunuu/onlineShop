@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 export const Product = () => {
   const [productData, setProductData] = useState([])
+  const [categories, setCategories] = useState([])
 
   function getData() {
     fetch("http://localhost:6060/api/product")
@@ -12,9 +13,20 @@ export const Product = () => {
         setProductData(data.result)
       })
   }
+  function getCategory() {
+    fetch(`http://localhost:6060/api/category`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.result);
+
+
+        setCategories(data.result)
+      })
+  }
 
   useEffect(() => {
-    getData()
+    getData();
+    getCategory();
   }, [])
   return (
     <>
@@ -35,10 +47,16 @@ export const Product = () => {
               alt=""
               style={{ height: "360px", width: "394px" }}
             />
-            {/* <span>{e.category}</span> */}
+            <p className="fw-bold mt-4 mb-2" style={{ color: "#AFADB5" }}>{
+              categories?.map(({ id, categoryName }) => {
+                if (id === e.categoryId) {
+                  return <span>{categoryName}</span>
+                }
+              })
+            }</p>
             <a href={`/product/card/${e.id}`} className="productDetail-a">{e.productName}</a>
-            <p style={{ color: "#AFADB5" }}>{e.description}</p>
-            <p>${e.price}</p>
+            <p style={{ color: "#AFADB5" }} className="mt-2">{e.description}</p>
+            <p className="fw-bold">${e.price}</p>
           </div>
         ))}
         <i class="bi bi-arrow-right-circle-fill"></i>

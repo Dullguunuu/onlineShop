@@ -9,6 +9,6 @@
 
 .productCard {
   margin: 10px;
-  gap: 20px;
+  gap: 40px;
   overflow-x: scroll;
 }

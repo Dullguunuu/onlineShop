@@ -19,6 +19,7 @@ body {
   font-size: 26px;
   font-weight: 700;
   line-height: 130%;
+  margin: 0;
 }
 
 .productDetail-a:hover {
@@ -90,7 +91,8 @@ body {
   column-gap: 50px;
   row-gap: 50px;
   grid-template-columns: auto auto auto;
-  padding: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .input {

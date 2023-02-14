@@ -4,12 +4,22 @@ import "../App.css"
 
 export default function ProductDetail() {
     const [selectedProduct, setSelectedProduct] = useState({})
-    const [allProduct, setAllProduct] = useState([])
+    const [productData, setProductData] = useState([])
+    const [categories, setCategories] = useState([])
     const [related, setRelated] = useState([])
     let additionalDescOfProduct = "Furniture is the word that means all the things like chairs, tables, cupboards, beds and bookcases, etc. In other words, furniture are all the things that are in the house and that people can use to sit, to lie on or that are supposed to contain smaller things like cloths or cups.Furniture is made of wood, particle boards, leather, screws etc."
     const [readMore, setReadMore] = useState(false)
+
     const { id } = useParams()
 
+    function getData() {
+        fetch("http://localhost:6060/api/product")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data.result);
+                setProductData(data.result)
+            })
+    }
     function getOneProduct() {
         fetch(`http://localhost:6060/api/product/${id}`)
             .then((res) => res.json())
@@ -19,21 +29,19 @@ export default function ProductDetail() {
             })
     }
 
-    function getRelatedItems() {
-        fetch(`http://localhost:6060/api/product`)
+    function getCategory() {
+        fetch("http://localhost:6060/api/category")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.result);
-                setAllProduct(data.result)
+                // console.log(data.result)
+                setCategories(data.result)
             })
-        let filtered = allProduct.filter((e) => e.categoryId == selectedProduct.categoryId)
-        setRelated(filtered)
-        console.log(related)
     }
 
     useEffect(() => {
         getOneProduct();
-        getRelatedItems();
+        getData();
+        getCategory();
     }, [])
 
 
@@ -46,12 +54,11 @@ export default function ProductDetail() {
                     <p style={{ color: "#AFADB5" }}>{selectedProduct.description}</p>
                     <p className='fw-bold'>Color</p>
                     <div className='flex'>
-                        {/* {console.log(selectedProduct.images)} */}
-                        {/* {
-                            selectedProduct.images.map((e) => (
+                        {
+                            selectedProduct?.images?.map((e) => (
                                 <img src={e} alt="" style={{ width: "60px" }} />
                             ))
-                        } */}
+                        }
                     </div>
                     {readMore ?
                         <p style={{ color: "#AFADB5" }}>{additionalDescOfProduct} <a href='#' style={{ color: "#518581" }} onClick={() => setReadMore(!readMore)}>Show Less</a></p>
@@ -66,18 +73,26 @@ export default function ProductDetail() {
             </div>
             }
             <h3 className="mt-5" style={{ fontSize: "2rem" }}>Related Items</h3>
-            <div className='mt-5 flex'>
+            <div className='mt-5 flex flex-wrap'>
                 {
-                    related.map((e) => (
-                        <div>
+                    productData.filter((cateItem) => cateItem.categoryId === selectedProduct.categoryId).map((e) => (
+                        < div className="col-4" >
                             <img src={e.thumbImage} alt="" />
-                            {/* <p></p> */}
-                            <p style={{ fontSize: "1.625rem", fontWeight: "700" }}>{e.productName}</p>
+                            <p className="fw-bold mt-3 mb-0" style={{ color: "#AFADB5" }}>
+                                {
+                                    categories?.map(({ id, categoryName }) => {
+                                        if (id === e.categoryId) {
+                                            return <span>{categoryName}</span>
+                                        }
+                                    })
+                                }
+                            </p>
+                            <p style={{ fontSize: "1.625rem", fontWeight: "700" }} className="mt-3">{e.productName}</p>
                             <p style={{ color: "#AFADB5" }}>{e.description}</p>
                             <p style={{ fontSize: "1.625rem", fontWeight: "700" }}>{e.price}</p>
                         </div>
-                    ))
-                }
+
+                    ))}
             </div>
         </div >
     )

@@ -4,7 +4,7 @@ import "../style/Landing.css";
 export const OurProduct = () => {
   return (
     <>
-      <div className="row">
+      <div className="row mt-5">
         <div className="col-6">
           <div className="outProduct flex flex-d ">
             <span className="ourProductSubTitle mb-1">Our product</span>

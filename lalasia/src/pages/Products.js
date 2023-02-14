@@ -9,6 +9,9 @@ import { BiFilterAlt } from "react-icons/bi"
 export const Products = () => {
 
   const [productData, setProductData] = useState([])
+  const [categories, setCategories] = useState([])
+  const [fetchData, setFetchData] = useState([])
+  const [searchText, setSearchText] = useState()
 
   function getData() {
     fetch("http://localhost:6060/api/product")
@@ -16,12 +19,42 @@ export const Products = () => {
       .then((data) => {
         console.log(data.result);
         setProductData(data.result)
+        setFetchData(data.result)
       })
   }
 
+  function getCategory() {
+    fetch(`http://localhost:6060/api/category`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.result);
+        setCategories(data.result)
+      })
+  }
   useEffect(() => {
-    getData()
+    getData();
+    getCategory();
   }, [])
+
+  function onChangeSearch(para) {
+    const newArr = []
+    fetchData.map((e) => {
+      if (e.productName.toLowerCase() && e.productName.toLowerCase().includes(para.toLowerCase())) {
+        newArr.push(e)
+      }
+      setProductData(newArr)
+    })
+  }
+
+  function searchProduct() {
+    const newArr = []
+    fetchData.map((e) => {
+      if (e.productName.includes(searchText)) {
+        newArr.push(e)
+      }
+      setProductData(newArr)
+    })
+  }
 
   return (
     <div>
@@ -36,27 +69,23 @@ export const Products = () => {
           </>
         ))}
       </div>
-      <div className="row gap-3">
+      <div className="row gap-3 mt-5">
         <div className="col-10 flex align-items-center justify-content-between productPageSearch gap-2 ">
           <RiSearch2Line style={{ fontSize: "30px" }} />
           <input
             type="text"
-            placeholder="Search property" className="productPageInput p-2"
+            placeholder="Search property" className="productPageInput p-2" value={searchText}
+            onChange={(e) => onChangeSearch(e.target.value)}
           />
-          <button>Find Now</button>
+          <button onClick={searchProduct}>Find Now</button>
         </div>
         <button className="filterProductBtn col"><BiFilterAlt style={{ fontSize: "30px" }} />Filter</button>
       </div>
       <div>
-        {/* <div className="flex justify-between">
-          <div>
-            <h1>Total Product</h1>
-            <span>184</span>
-          </div>
-          <div>
-            <span>Sort By</span>
-          </div>
-        </div> */}
+        <div className="flex align-items-end gap-3 mt-5">
+          <h2>Total Product</h2>
+          <p className="badge bg-success">{productData.length}</p>
+        </div>
         <div className="productCard">
           {productData.map((item) => (
             <ProductCard item={item} key={item.id} />
