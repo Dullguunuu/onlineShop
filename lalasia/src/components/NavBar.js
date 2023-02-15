@@ -45,8 +45,8 @@ export const NavBar = ({ current, setCurrent }) => {
         <div className="flex align-items space-between gap-3 btn-group">
           <img src={require("../assets/icon-img/bag.png")} alt="" />
           <div className="dropdown-menu-end">
-            <img src={require("../assets/icon-img/user.png")} alt="" type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" />
-            <form className="dropdown-menu p-4" style={{ width: "300px" }}>
+            < img src={require("../assets/icon-img/user.png")} alt="" type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" />
+            <form className={`dropdown-menu p-4 ${modal ? "none" : "show"}`} style={{ width: "300px" }}>
               <div className="mb-3">
                 <label for="dropdownFormEmail" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="dropdownFormEmail" placeholder="email@example.com" />
@@ -55,9 +55,13 @@ export const NavBar = ({ current, setCurrent }) => {
                 <label for="dropdownFormPassword" className="form-label" > Password</label >
                 <input type="password" className="form-control" id="dropdownFormPassword" placeholder="Password" />
               </div >
-              <button type="submit" className="btn col-12" style={{ background: "#518581", color: "white" }}> Sign in</button >
+              <button type="submit" className="btn col-12" style={{ background: "#518581", color: "white" }}> Log in</button >
               <hr className="mt-3 mb-3" />
-              <button type="submit" className="btn btn-outline-secondary col-12" onClick={() => setModal(!modal)}> Create Account</button >
+              <button type="submit" className="btn btn-outline-secondary col-12" onClick={(e) => {
+
+                e.preventDefault();
+                setModal(!modal);
+              }}> Create Account</button >
             </form >
           </div >
         </div >

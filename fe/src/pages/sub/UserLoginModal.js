@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { React, useState } from 'react'
 
-export default function UserLoginModal({ modal, setModal }) {
+export default function UserLoginModal({ modal, setModal, getData }) {
     const modalDispStyle = modal ? "block" : "none";
 
     const userInit = {
@@ -31,6 +31,7 @@ export default function UserLoginModal({ modal, setModal }) {
                 console.log(data)
                 setUserItem(userInit)
                 setModal(!modal)
+                getData();
             })
     }
 

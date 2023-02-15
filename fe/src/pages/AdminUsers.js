@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import UserLoginModal from './sub/UserLoginModal'
 
-export default function Users() {
+export default function AdminUsers() {
     const [modal, setModal] = useState(false)
 
     const userInit = {
@@ -91,27 +91,31 @@ export default function Users() {
                 userItem={userItem}
                 setUserItem={setUserItem}
                 handleUserSubmit={handleUserSubmit}
+                getData={getData}
             />
             <div>
                 {
                     tableData.map((e, index) => (
-                        <div className='d-flex gap-5 align-items-center' >
-                            <div className="d-flex gap-5 align-items-end mb-5 ms-5">
-                                <img src={e.image ? e.image : require("../images/blank-profile.webp")} style={{ width: "100px", height: "100px", borderRadius: "50%" }} />
-                                <div>
-                                    <p className='fst-italic fw-bold'>Username: <span className='fst-normal fw-normal'>{e.username}</span></p>
-                                    <p className='fst-italic fw-bold'>Fullname: <span className='fst-normal fw-normal'>{e.firstName} {e.lastName}</span></p>
+                        <>
+                            <div className='d-flex gap-5 align-items-center' >
+                                <div className="d-flex gap-5 align-items-end ms-5 col-8">
+                                    <img src={e.image ? e.image : require("../images/blank-profile.webp")} style={{ width: "100px", height: "100px", borderRadius: "50%" }} alt="" />
+                                    <div>
+                                        <p className='fst-italic fw-bold'>Username: <span className='fst-normal fw-normal'>{e.username}</span></p>
+                                        <p className='fst-italic fw-bold'>Fullname: <span className='fst-normal fw-normal'>{e.firstName} {e.lastName}</span></p>
+                                    </div>
+                                    <div>
+                                        <p className='fst-italic fw-bold'>Email: <span className='fst-normal fw-normal'>{e.email}</span></p>
+                                        <p className='fst-italic fw-bold'>Phone: <span className='fst-normal fw-normal'>{e.phone}</span></p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p className='fst-italic fw-bold'>Email: <span className='fst-normal fw-normal'>{e.email}</span></p>
-                                    <p className='fst-italic fw-bold'>Phone: <span className='fst-normal fw-normal'>{e.phone}</span></p>
+                                <div className='col-2'>
+                                    <button className='btn btn-outline-success me-2' onClick={() => handleEditUser(e)}><i className="bi bi-pencil-square"></i></button>
+                                    <button className='btn btn-outline-danger' onClick={() => handleDelUser(e.id)}><i className="bi bi-trash3"></i></button>
                                 </div>
                             </div>
-                            <div>
-                                <button className='btn btn-outline-success me-2' onClick={() => handleEditUser(e)}><i className="bi bi-pencil-square"></i></button>
-                                <button className='btn btn-outline-danger' onClick={() => handleDelUser(e.id)}><i className="bi bi-trash3"></i></button>
-                            </div>
-                        </div>
+                            <hr />
+                        </>
                     ))
                 }
             </div>

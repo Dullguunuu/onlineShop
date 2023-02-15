@@ -1,4 +1,6 @@
 import { React, useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom'
 import "../App.css"
 
@@ -44,7 +46,6 @@ export default function ProductDetail() {
         getCategory();
     }, [])
 
-
     return (
         <div className='mt-5 mb-5'>
             {<div className='flex'>
@@ -61,13 +62,13 @@ export default function ProductDetail() {
                         }
                     </div>
                     {readMore ?
-                        <p style={{ color: "#AFADB5" }}>{additionalDescOfProduct} <a href='#' style={{ color: "#518581" }} onClick={() => setReadMore(!readMore)}>Show Less</a></p>
+                        <p style={{ color: "#AFADB5" }}>{additionalDescOfProduct} <a href='#!' style={{ color: "#518581" }} onClick={() => setReadMore(!readMore)}>Show Less</a></p>
                         :
-                        <p style={{ color: "#AFADB5" }}>{additionalDescOfProduct.substring(0, 199)}... <a href='#' style={{ color: "#518581" }} onClick={() => setReadMore(!readMore)}>Read More</a></p>
+                        <p style={{ color: "#AFADB5" }}>{additionalDescOfProduct.substring(0, 199)}... <a href='#!' style={{ color: "#518581" }} onClick={() => setReadMore(!readMore)}>Read More</a></p>
                     }
                     <div className='row gap-3'>
-                        <button className='col' style={{}}>Buy Now</button>
-                        <button className='col' style={{ color: "black", background: "none", border: "1px grey solid" }}>Add to Cart</button>
+                        <button className='col' onClick={() => toast('Нэвтрэх шаардлагатай!')}>Buy Now</button>
+                        <button className='col' onClick={() => toast('Нэвтрэх шаардлагатай!')} style={{ color: "black", background: "none", border: "1px grey solid" }}>Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -94,6 +95,17 @@ export default function ProductDetail() {
 
                     ))}
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light" />
         </div >
     )
 }

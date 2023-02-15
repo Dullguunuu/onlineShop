@@ -21,7 +21,8 @@ export default function AdminLayout() {
                         <li><i class="bi bi-tags"></i><Link to="/admin/categories" >Categories</Link></li>
                         <li><i class="bi bi-briefcase"></i><Link to="/admin/brands" >Brands</Link></li>
                         <li><i class="bi bi-collection"></i><Link to="/admin/products" >Products</Link></li>
-                        <li><i class="bi bi-people"></i><Link to="/admin/users" >Users</Link></li>
+                        <li><i class="bi bi-people"></i><Link to="/admin/customers" >Customers</Link></li>
+                        <li><i class="bi bi-person-circle"></i><Link to="/admin/admin-users" >Admin Users</Link></li>
                         <li><i class="bi bi-cart"></i><Link to="/admin/orders" >Orders</Link></li>
                         <li><i class="bi bi-globe"></i><Link to="/admin/sellers" >Sellers</Link></li>
                     </ul>

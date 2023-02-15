@@ -31,6 +31,8 @@ export default function CreateAccountModal({ modal, setModal }) {
                 console.log(data)
                 setCustomerItem(customerInit)
                 setModal(!modal)
+                setIsValid('')
+                setPassConfig('')
             })
     }
 
@@ -95,12 +97,9 @@ export default function CreateAccountModal({ modal, setModal }) {
                         </div>
                         <div className='col-8'>
                             <label className='form-label'>Password Confirmation</label>
-                            <input className='form-control' type="text" style={{ border: passConfig == customerItem.password ? "1px solid lightgrey" : "1px solid rgba(255, 0, 0, 0.421)" }} onChange={(e) => setPassConfig(e.target.value)} />
+                            <input className='form-control' type="text" style={{ border: passConfig == customerItem.password ? "1px solid lightgrey" : "1px solid rgba(255, 0, 0, 0.421)" }} value={passConfig} onChange={(e) => setPassConfig(e.target.value)} />
                         </div>
-                        <div className='d-flex gap-2 mt-4 justify-content-end'>
-                            <button className='btn' style={{ background: "#518581", color: "white" }}>Create User</button>
-                            <button className='btn btn-outline-danger col-2' onClick={() => setModal(!modal)}>Close</button>
-                        </div>
+                        <button className='btn mt-4' style={{ background: "#518581", color: "white" }}>Create User</button>
                     </form>
                 </div>
             </div>

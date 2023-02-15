@@ -6,9 +6,10 @@ import Menus from './pages/Menus';
 import Categories from './pages/Categories';
 import Brands from './pages/Brands';
 import Products from './pages/Products';
-import Users from './pages/Users';
+import AdminUsers from './pages/AdminUsers';
 import Orders from './pages/Orders';
 import Sellers from './pages/Sellers';
+import Customers from './pages/Customers';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route path="categories" element={<Categories />} />
           <Route path="brands" element={<Brands />} />
           <Route path="products" element={<Products />} />
-          <Route path="users" element={<Users />} />
+          <Route path="customers" element={<Customers />} />
+          <Route path="admin-users" element={<AdminUsers />} />
           <Route path="orders" element={<Orders />} />
           <Route path="sellers" element={<Sellers />} />
         </Route>
