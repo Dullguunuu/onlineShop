@@ -1,6 +1,9 @@
 const fs = require("fs");
 const { parse } = require("path");
 const uuid = require("uuid");
+const bcrypt = require("bcrypt");
+const saltRounds = 3;
+const myKey = "1234!@#$"
 
 const dataFile = process.cwd() + "/data/customer.json"
 
@@ -32,27 +35,41 @@ exports.getAll = (req, res) => {
 exports.create = (req, res) => {
     const { firstName, lastName, username, phone, email, password } = req.body;
     console.log(req.body)
-    fs.readFile(dataFile, "utf-8", (readErr, data) => {
+    fs.readFile(dataFile, "utf-8", async (readErr, data) => {
         if (readErr) {
             return res.json({ status: false, message: readErr })
         }
 
         const parsedData = data ? JSON.parse(data) : [];
 
-        const newObj = { id: uuid.v4(), firstName, lastName, username, phone, email, password };
+        const newPassword = await bcrypt.hash(password + myKey, saltRounds)
+
+        const newObj = {
+            id: uuid.v4(),
+            firstName,
+            lastName,
+            username,
+            phone,
+            email,
+            password: newPassword,
+            favoriteProducts: [],
+            mostViewProducts: [],
+            createdDate: Date.now(),
+        };
+
         parsedData.push(newObj)
 
         fs.writeFile(dataFile, JSON.stringify(parsedData), (writeErr) => {
             if (writeErr) {
                 return res.json({ status: false, message: writeErr })
             }
-            return res.json({ status: true, result: parsedData })
+            return res.json({ status: true, message: "Successfully Added", result: parsedData })
         })
     })
 }
 
 exports.update = (req, res) => {
-    const { firstName, lastName, username, phone, email, password } = req.body;
+    const { firstName, lastName, username, phone, email, password, favoriteProducts, mostViewProducts, lastLoginDate } = req.body;
     const { id } = req.params;
 
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
@@ -64,7 +81,19 @@ exports.update = (req, res) => {
 
         const updateData = parsedData.map((customerObj) => {
             if (customerObj.id == id) {
-                return { ...customerObj, firstName, lastName, username, phone, email, password }
+                return {
+                    ...customerObj,
+                    firstName,
+                    lastName,
+                    username,
+                    phone,
+                    email,
+                    password,
+                    favoriteProducts,
+                    mostViewProducts,
+                    lastLoginDate,
+                    updateData: Date.now()
+                }
             }
             else {
                 return customerObj
@@ -75,7 +104,7 @@ exports.update = (req, res) => {
             if (writeErr) {
                 return res.json({ status: false, message: writeErr })
             } else {
-                return res.json({ status: true, result: updateData })
+                return res.json({ status: true, result: "Successfully Updated" })
             }
         })
     })
@@ -84,6 +113,9 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
     const { id } = req.params;
+
+    if (!id)
+        return res.json({ status: false, message: "user ID not found" })
 
     fs.readFile(dataFile, "utf-8", (readErr, data) => {
         if (readErr) {
@@ -98,8 +130,62 @@ exports.delete = (req, res) => {
             if (writeErr) {
                 return res.json({ status: false, message: writeErr })
             }
-            return res.json({ status: true, result: deletedData })
+            return res.json({ status: true, result: "Successfully Deleted" })
         })
+    })
+}
+
+exports.login = (req, res) => {
+    const { email, password } = req.body;
+    if (!email || !password)
+        return res.json({
+            status: false,
+            message: "The password or email you’ve entered is incorrect. "
+        })
+
+    fs.readFile(dataFile, "utf-8", async (readErr, data) => {
+        if (readErr)
+            ({
+                status: false, message: readErr
+            })
+
+        const parsedData = data ? JSON.parse(data) : [];
+        let user;
+        for (let i = 0; i < parsedData.length; i++) {
+            if (email == parsedData[i].email) {
+                const decrypt = await bcrypt.compare(
+                    password + myKey,
+                    parsedData[i].password
+                );
+
+                if (decrypt) {
+                    user = {
+                        id: parsedData[i].id,
+                        username: parsedData[i].username,
+                        firstName: parsedData[i].firstName,
+                        lastName: parsedData[i].lastName,
+                        phone: parsedData[i].phone,
+                        email: parsedData[i].email,
+                    };
+                    break;
+                }
+            }
+        }
+
+        console.log(user)
+
+        if (user) {
+            return res.json({
+                status: true,
+                result: user,
+            });
+        }
+        else {
+            return res.json({
+                status: false,
+                message: "The password or email you’ve entered is incorrect."
+            })
+        }
     })
 }
 

@@ -1,1 +1,26 @@
-[{"id":"a5e81e59-58e8-4812-818d-8eb005307584","firstName":"Dulguun","lastName":"Duk","username":"Duk","phone":"98989898","email":"dulguunuu@gmail.com","password":"Zazaza1!"},{"id":"526eeb56-c2d9-4be4-96a0-6dc949f6eae5","firstName":"Oyuka","lastName":"Bagsh","username":"Oyuka","phone":"99889988","email":"oyuka@gmail.com","password":"Bagsh12!@"},{"id":"cd248097-4d9b-497b-ad3b-9c1a4163549f","firstName":"Nara","lastName":"Ganzo","username":"Nara","phone":"98765432","email":"nado@gmail.com","password":"Nado12!@"}]
+[
+    {
+        "id": "951da396-c62f-40bf-b152-b400fdd87dfc",
+        "firstName": "Oyunjargal",
+        "lastName": "Ganbaatar",
+        "username": "Oyuka",
+        "phone": "99889988",
+        "email": "oyuka@gmail.com",
+        "password": "$2b$04$NrnbDyNNH1mVS.8JS35zMOVTefs2qTLfd9wLCN3mJ5Yc5G2V34FLq",
+        "favoriteProducts": [],
+        "mostViewProducts": [],
+        "createdDate": 1676513885307
+    },
+    {
+        "id": "0f0acf9d-68dd-41c9-bfcd-e202fefb4570",
+        "firstName": "Dulguun",
+        "lastName": "Bayanmunkh",
+        "username": "Duk",
+        "phone": "88066062",
+        "email": "dullguunuu@gmail.com",
+        "password": "$2b$04$Ei.OG6IF3xfLAuujz46ziuVRTLqLHCdAlVUQAyLJNHwL/RRguwZaG",
+        "favoriteProducts": [],
+        "mostViewProducts": [],
+        "createdDate": 1676516151236
+    }
+]

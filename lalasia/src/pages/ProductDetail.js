@@ -8,7 +8,6 @@ export default function ProductDetail() {
     const [selectedProduct, setSelectedProduct] = useState({})
     const [productData, setProductData] = useState([])
     const [categories, setCategories] = useState([])
-    const [related, setRelated] = useState([])
     let additionalDescOfProduct = "Furniture is the word that means all the things like chairs, tables, cupboards, beds and bookcases, etc. In other words, furniture are all the things that are in the house and that people can use to sit, to lie on or that are supposed to contain smaller things like cloths or cups.Furniture is made of wood, particle boards, leather, screws etc."
     const [readMore, setReadMore] = useState(false)
 
@@ -93,7 +92,8 @@ export default function ProductDetail() {
                             <p style={{ fontSize: "1.625rem", fontWeight: "700" }}>{e.price}</p>
                         </div>
 
-                    ))}
+                    ))
+                }
             </div>
             <ToastContainer
                 position="top-right"
