@@ -214,3 +214,7 @@ body {
 .xButton:hover {
   background-color: #e6e6e69c;
 }
+
+.Toastify__close-button {
+  width: 30px;
+}

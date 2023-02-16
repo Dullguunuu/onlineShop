@@ -10,6 +10,7 @@ export const NavBar = ({ current, setCurrent }) => {
   const [user, setUser] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
+  // localStorage.clear()
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -32,7 +33,6 @@ export const NavBar = ({ current, setCurrent }) => {
   }
 
   return (
-    // <header className="flex align-items space-between">
     <div className="navContainer">
       <nav className="flex align-items space-between border-bottom">
         <Link
@@ -66,32 +66,43 @@ export const NavBar = ({ current, setCurrent }) => {
           )}
         </div>
         <div className="flex align-items space-between gap-3 btn-group">
+          {localStorage.user ?
+            <p className="mb-0 me-3">Hi, {localStorage.getItem("user")}</p> : ""}
           <img src={require("../assets/icon-img/bag.png")} alt="" />
           <div className="dropdown-menu-end">
             <img src={require("../assets/icon-img/user.png")} alt="" type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="inside" />
-            <form className="dropdown-menu p-4" style={{ width: "300px" }} >
-              <div className="mb-3">
-                <label for="dropdownFormEmail" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="dropdownFormEmail" placeholder="email@example.com"
-                  name="email"
-                  value={user.email}
-                  onChange={handleChange}
-                />
+            {!localStorage.user ?
+              <form className="dropdown-menu p-4" style={{ width: "300px" }} >
+                <div className="mb-3">
+                  <label for="dropdownFormEmail" className="form-label">Email address</label>
+                  <input type="email" className="form-control" id="dropdownFormEmail" placeholder="email@example.com"
+                    name="email"
+                    value={user.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="mb-3" >
+                  <label for="dropdownFormPassword" className="form-label" > Password</label >
+                  <input type="password" className="form-control" id="dropdownFormPassword" placeholder="Password"
+                    name="password"
+                    value={user.password}
+                    onChange={handleChange} />
+                </div >
+                <button type="submit" className="btn col-12" style={{ background: "#518581", color: "white" }} onClick={onLogin}> Log in</button >
+                <hr className="mt-3 mb-3" />
+                <button type="submit" className="btn btn-outline-secondary col-12" onClick={(e) => {
+                  e.preventDefault();
+                  setModal(!modal);
+                }}> Create Account</button >
+              </form >
+              :
+              <div className="dropdown-menu">
+                <button className="dropdown-item ps-4 pe-4" onClick={() => {
+                  localStorage.clear();
+                  navigate("/")
+                }}><i className="bi bi-box-arrow-right me-3" style={{ fontSize: "20px" }}></i>Log Out</button>
               </div>
-              <div className="mb-3" >
-                <label for="dropdownFormPassword" className="form-label" > Password</label >
-                <input type="password" className="form-control" id="dropdownFormPassword" placeholder="Password"
-                  name="password"
-                  value={user.password}
-                  onChange={handleChange} />
-              </div >
-              <button type="submit" className="btn col-12" style={{ background: "#518581", color: "white" }} onClick={onLogin}> Log in</button >
-              <hr className="mt-3 mb-3" />
-              <button type="submit" className="btn btn-outline-secondary col-12" onClick={(e) => {
-                e.preventDefault();
-                setModal(!modal);
-              }}> Create Account</button >
-            </form >
+            }
           </div >
         </div >
       </nav >

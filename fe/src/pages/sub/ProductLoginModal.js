@@ -71,6 +71,8 @@ export default function UserLoginModal({ productModal, setProductModal, productI
             arr.push(res.data.secure_url)
         })
 
+
+
         if (fieldName === "images") {
             setProductItem({ ...productItem, images: arr })
         } else {

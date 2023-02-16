@@ -38,7 +38,7 @@ export const Product = () => {
           placerat nisi, adipiscing mauris non purus parturient.
         </p>
       </div>
-      <div className="products flex gap-4">
+      <div className="products flex gap-4 overflow">
         <i class="bi bi-arrow-left-circle-fill"></i>
         {productData.map((e, index) => (
           <div className="" key={index}>

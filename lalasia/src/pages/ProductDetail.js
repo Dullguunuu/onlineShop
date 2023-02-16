@@ -11,6 +11,11 @@ export default function ProductDetail() {
     let additionalDescOfProduct = "Furniture is the word that means all the things like chairs, tables, cupboards, beds and bookcases, etc. In other words, furniture are all the things that are in the house and that people can use to sit, to lie on or that are supposed to contain smaller things like cloths or cups.Furniture is made of wood, particle boards, leather, screws etc."
     const [readMore, setReadMore] = useState(false)
 
+    const [selectedImg, setSelectedImg] = useState()
+    const [imgList, setImgList] = useState()
+
+
+
     const { id } = useParams()
 
     function getData() {
@@ -27,6 +32,7 @@ export default function ProductDetail() {
             .then((data) => {
                 console.log(data.result);
                 setSelectedProduct(data.result[0])
+                setSelectedImg(data.result[0].thumbImage)
             })
     }
 
@@ -45,18 +51,24 @@ export default function ProductDetail() {
         getCategory();
     }, [])
 
+    function handleCart() {
+        return (
+            toast('👻 Must be logged in!')
+        )
+    }
     return (
         <div className='mt-5 mb-5'>
             {<div className='flex'>
-                <img src={selectedProduct.thumbImage} alt="" className='col' />
-                <div className='col m-5 flex flex-column justify-content-between'>
+                <img src={selectedImg} alt="" className='col square' style={{ width: "45%", height: "" }} />
+                <div className='col ms-5 flex flex-column'>
                     <h2 style={{ fontSize: "2.75rem" }}>{selectedProduct.productName}</h2>
-                    <p style={{ color: "#AFADB5" }}>{selectedProduct.description}</p>
+                    <p style={{ color: "#AFADB5" }} className="mt-3">{selectedProduct.description} </p>
                     <p className='fw-bold'>Color</p>
-                    <div className='flex'>
+                    <div className={`flex mb-4 p-2`}>
+                        <img src={selectedProduct.thumbImage} alt="" style={{ width: "120px" }} className={`p-2 border ${selectedImg == selectedProduct.thumbImage ? "bg-success" : ""}`} onClick={() => setSelectedImg(selectedProduct.thumbImage)} />
                         {
-                            selectedProduct?.images?.map((e) => (
-                                <img src={e} alt="" style={{ width: "60px" }} />
+                            selectedProduct?.images?.map((e, index) => (
+                                <img src={e} alt="" style={{ width: "120px" }} className={`p-2 border ${selectedImg == e ? "bg-success" : ""}`} onClick={() => setSelectedImg(e)} />
                             ))
                         }
                     </div>
@@ -66,8 +78,8 @@ export default function ProductDetail() {
                         <p style={{ color: "#AFADB5" }}>{additionalDescOfProduct.substring(0, 199)}... <a href='#!' style={{ color: "#518581" }} onClick={() => setReadMore(!readMore)}>Read More</a></p>
                     }
                     <div className='row gap-3'>
-                        <button className='col' onClick={() => toast('Нэвтрэх шаардлагатай!')}>Buy Now</button>
-                        <button className='col' onClick={() => toast('Нэвтрэх шаардлагатай!')} style={{ color: "black", background: "none", border: "1px grey solid" }}>Add to Cart</button>
+                        <button className='col' onClick={() => toast('👻 Must be logged in!')}>Buy Now</button>
+                        <button className='col' onClick={(selectedProduct) => handleCart(selectedProduct.id)} style={{ color: "black", background: "none", border: "1px grey solid" }}>Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -78,7 +90,7 @@ export default function ProductDetail() {
                     productData.filter((cateItem) => cateItem.categoryId === selectedProduct.categoryId).map((e) => (
                         < div className="col-4" >
                             <img src={e.thumbImage} alt="" />
-                            <p className="fw-bold mt-3 mb-0" style={{ color: "#AFADB5" }}>
+                            <p className="fw-bold mt-3 mb-3" style={{ color: "#AFADB5" }}>
                                 {
                                     categories?.map(({ id, categoryName }) => {
                                         if (id === e.categoryId) {
@@ -87,9 +99,9 @@ export default function ProductDetail() {
                                     })
                                 }
                             </p>
-                            <p style={{ fontSize: "1.625rem", fontWeight: "700" }} className="mt-3">{e.productName}</p>
-                            <p style={{ color: "#AFADB5" }}>{e.description}</p>
-                            <p style={{ fontSize: "1.625rem", fontWeight: "700" }}>{e.price}</p>
+                            <a href={`/product/card/${e.id}`} style={{ fontSize: "1.625rem", fontWeight: "700" }} className="productDetail-a">{e.productName}</a>
+                            <p style={{ color: "#AFADB5" }} className="mt-3">{e.description}</p>
+                            <p style={{ fontSize: "1.625rem", fontWeight: "700" }} >${e.price}</p>
                         </div>
 
                     ))
