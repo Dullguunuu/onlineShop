@@ -8,6 +8,7 @@ import axios from "axios";
 export const NavBar = ({ current, setCurrent }) => {
   const [modal, setModal] = useState(false)
   const [user, setUser] = useState({ email: "", password: "" });
+  const [isLogged, setIsLogged] = useState()
   const navigate = useNavigate();
 
   // localStorage.clear()
@@ -25,6 +26,7 @@ export const NavBar = ({ current, setCurrent }) => {
         console.log(status);
         if (status) {
           localStorage.setItem("user", result.firstName);
+          setIsLogged(localStorage.user)
         } else {
           alert("The password or email you’ve entered is incorrect. ")
         }
@@ -68,7 +70,9 @@ export const NavBar = ({ current, setCurrent }) => {
         <div className="flex align-items space-between gap-3 btn-group">
           {localStorage.user ?
             <p className="mb-0 me-3">Hi, {localStorage.getItem("user")}</p> : ""}
-          <img src={require("../assets/icon-img/bag.png")} alt="" />
+          <Link to="/basket"><img src={require("../assets/icon-img/bag.png")} alt="" className="position-relative" />
+            {localStorage.user ? <span style={{ position: "absolute", top: 0 }} className="translate- middle badge rounded-pill bg-success">12</span> : ""}
+          </Link>
           <div className="dropdown-menu-end">
             <img src={require("../assets/icon-img/user.png")} alt="" type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="inside" />
             {!localStorage.user ?

@@ -12,8 +12,6 @@ export default function ProductDetail() {
     const [readMore, setReadMore] = useState(false)
 
     const [selectedImg, setSelectedImg] = useState()
-    const [imgList, setImgList] = useState()
-
 
 
     const { id } = useParams()
@@ -51,9 +49,10 @@ export default function ProductDetail() {
         getCategory();
     }, [])
 
-    function handleCart() {
+    function handleCart(id) {
+        // {localStorage.user ? return console.log("a"): return toast('👻 Must be logged in!')}
         return (
-            toast('👻 Must be logged in!')
+            console.log("a")
         )
     }
     return (
