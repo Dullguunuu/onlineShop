@@ -1,0 +1,26 @@
+[
+    {
+        "id": "951da396-c62f-40bf-b152-b400fdd87dfc",
+        "firstName": "Oyunjargal",
+        "lastName": "Ganbaatar",
+        "username": "Oyuka",
+        "phone": "99889988",
+        "email": "oyuka@gmail.com",
+        "password": "$2b$04$NrnbDyNNH1mVS.8JS35zMOVTefs2qTLfd9wLCN3mJ5Yc5G2V34FLq",
+        "favoriteProducts": [],
+        "mostViewProducts": [],
+        "createdDate": 1676513885307
+    },
+    {
+        "id": "0f0acf9d-68dd-41c9-bfcd-e202fefb4570",
+        "firstName": "Dulguun",
+        "lastName": "Bayanmunkh",
+        "username": "Duk",
+        "phone": "88066062",
+        "email": "dullguunuu@gmail.com",
+        "password": "$2b$04$Ei.OG6IF3xfLAuujz46ziuVRTLqLHCdAlVUQAyLJNHwL/RRguwZaG",
+        "favoriteProducts": [],
+        "mostViewProducts": [],
+        "createdDate": 1676516151236
+    }
+]

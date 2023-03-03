@@ -1,0 +1,36 @@
+###
+
+GET http://localhost:6060/api
+
+###
+
+GET  http://localhost:6060/api/category
+
+###
+
+GET http://localhost:6060/api/category/5012c0a5-cdc8-41d9-83fd-c8ec562e3122
+
+###
+
+POST http://localhost:6060/api/category
+Content-Type: application/json
+
+{
+    "categoryName": "Shoes",
+    "categoryLink": "/shoes"
+}
+
+### 
+
+PUT http://localhost:6060/api/category
+Content-Type: application/json
+
+{
+    "id": "4fb6cc7b-188d-47da-a64b-600fcce41a80",
+    "categoryName": "Bags",
+    "categoryLink": "/bags"
+}
+
+###
+
+DELETE http://localhost:6060/api/category/330d6170-61b3-49aa-ad16-5dff3676b1a5
