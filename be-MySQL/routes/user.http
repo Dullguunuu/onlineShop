@@ -27,7 +27,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:6060/api/user/9cc9b77a-6f30-4eec-ac57-1b9912374d98
+PUT http://localhost:6060/api/user/1
 Content-Type: application/json
 
 {

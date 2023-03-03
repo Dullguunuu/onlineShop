@@ -42,3 +42,10 @@ exports.updateUser = async (table, id, updatedData) => {
     }
     return result;
 };
+
+exports.deleteUser = async (table, id) => {
+    const [result] = await pool.query(
+      `DELETE FROM ${table} WHERE id='${id}'`
+    );
+    return result;
+  };
