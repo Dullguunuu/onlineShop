@@ -1,0 +1,32 @@
+[
+    {
+        "id": "8da7114c-2fd3-4185-919a-6424d22609d5",
+        "categoryName": "Chair",
+        "categoryLink": "/chair"
+    },
+    {
+        "id": "77a380f5-29d7-4629-8776-866d28fa32ef",
+        "categoryName": "Cupboard",
+        "categoryLink": "/cupboard"
+    },
+    {
+        "id": "8e46d764-9144-4a67-966c-ee7909be06ac",
+        "categoryName": "Table",
+        "categoryLink": "/table"
+    },
+    {
+        "id": "9b6d7940-ecea-4f7e-a136-d86639d3a779",
+        "categoryName": "Decoration",
+        "categoryLink": "/decoration"
+    },
+    {
+        "id": "6af5d0aa-2968-4cab-9c60-3c8206917f66",
+        "categoryName": "Sofa",
+        "categoryLink": "/sofa"
+    },
+    {
+        "id": "db4f5c3a-078a-4522-b2ab-5267b0069a40",
+        "categoryName": "Lamp",
+        "categoryLink": "/lamp"
+    }
+]

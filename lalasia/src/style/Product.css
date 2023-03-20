@@ -2,13 +2,13 @@
   display: flex;
 }
 
-.products {
+/* .products {
   overflow: auto;
   position: relative;
-}
+} */
 
-.productCard {
+/* .productCard {
   margin: 10px;
   gap: 40px;
   overflow-x: scroll;
-}
+} */
