@@ -40,7 +40,7 @@ export const Product = () => {
       </div>
       <div className="products flex gap-4 overflow">
         <i class="bi bi-arrow-left-circle-fill"></i>
-        {productData.map((e, index) => (
+        {productData.slice(0, 10).map((e, index) => (
           <div className="" key={index}>
             <img
               src={e.thumbImage}
