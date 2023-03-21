@@ -3,7 +3,10 @@ const category = require("../controllers/category.controller");
 
 const route = Router();
 
-route.get("/", category.getAll);
-route.get("/create", category.create);
+route.get("/category", category.getAll);
+route.get("/category/:_id", category.getOne);
+route.post("/category", category.createCategory);
+route.put("/category/:_id", category.updateCategory);
+route.delete("/category/:_id", category.deleteCategory);
 
 module.exports = route;

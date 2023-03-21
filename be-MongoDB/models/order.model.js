@@ -10,12 +10,12 @@ const orderSchema = new mongoose.Schema(
         },
         status: String,
         orderDetails: [{
-            orderId: String,
             productId: String,
             quantity: Number,
+            currentPrice: Number,
         },],
     },
-    { collection: "Order" }
+    { collection: "Orders" }
 );
 
 const Order = mongoose.model("Order", orderSchema);

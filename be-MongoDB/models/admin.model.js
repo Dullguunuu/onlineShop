@@ -10,7 +10,7 @@ const adminSchema = new mongoose.Schema(
         image: String,
         password: String,
     },
-    { collection: "User" }
+    { collection: "Users" }
 );
 
 const Admin = mongoose.model("Admin", adminSchema);

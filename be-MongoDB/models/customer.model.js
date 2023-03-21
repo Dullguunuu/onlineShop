@@ -10,7 +10,7 @@ const customerSchema = new mongoose.Schema(
         likedProducts: [String],
         password: String,
     },
-    { collection: "Customer" }
+    { collection: "Customers" }
 );
 
 const Customer = mongoose.model("Customer", customerSchema);

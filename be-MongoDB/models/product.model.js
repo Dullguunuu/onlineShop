@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema(
         },
         createdUser: String,
     },
-    { collection: "Product" }
+    { collection: "Products" }
 );
 
 const Product = mongoose.model("Product", productSchema);

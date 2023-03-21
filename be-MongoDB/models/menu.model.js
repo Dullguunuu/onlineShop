@@ -6,7 +6,7 @@ const menuSchema = new mongoose.Schema(
         menuLink: String,
         position: Number,
     },
-    { collection: "Menu" }
+    { collection: "Menus" }
 );
 
 const Menu = mongoose.model("Menu", menuSchema);
