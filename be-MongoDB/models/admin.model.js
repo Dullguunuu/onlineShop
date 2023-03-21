@@ -7,8 +7,8 @@ const adminSchema = new mongoose.Schema(
         userName: String,
         email: String,
         phone: Number,
-        image: Buffer,
-        password: SchemaTypes,
+        image: String,
+        password: String,
     },
     { collection: "User" }
 );

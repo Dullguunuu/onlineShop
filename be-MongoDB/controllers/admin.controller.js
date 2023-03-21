@@ -7,17 +7,8 @@ exports.getAll = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
-    const newAdmin = { firstName: "Samsung", categoryLink: "/samsung" };
-    const createAdmin = await Category.create(newAdmin);
+    const newAdmin = { firstName: "", lastName: "", userName: "", email: "", phone: 0, image: "", password: "" };
+    const createAdmin = await Admin.create(newAdmin);
     console.log(createAdmin);
     res.json({ message: "Success", result: createAdmin });
 };
-
-
-// firstName: String,
-// lastName: String,
-// userName: String,
-// email: String,
-// phone: Number,
-// image: Buffer,
-// password: SchemaTypes,

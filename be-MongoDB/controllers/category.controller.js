@@ -12,3 +12,5 @@ exports.create = async (req, res) => {
     console.log(createCate);
     res.json({ message: "Success", result: createCate });
 };
+
+
