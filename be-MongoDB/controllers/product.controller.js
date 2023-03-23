@@ -2,7 +2,7 @@ const Product = require("../models/product.model")
 
 exports.getAll = async (req, res) => {
     try {
-        const getAllProduct = await Product.find({});
+        const getAllProduct = await Product.find({}).populate("categoryId").populate("brandId").populate("createdAdmin");
         res.json({ status: true, result: getAllProduct });
     } catch (err) {
         res.json({ status: false, message: err });
@@ -12,7 +12,7 @@ exports.getAll = async (req, res) => {
 exports.getOne = async (req, res) => {
     const { _id } = req.params;
     try {
-        const getOneProduct = await Product.findById({ _id });
+        const getOneProduct = await Product.findById({ _id }).populate("categoryId").populate("brandId").populate("createdAdmin");
         res.json({ status: true, result: getOneProduct });
     } catch (err) {
         res.json({ status: false, message: err });
@@ -21,7 +21,7 @@ exports.getOne = async (req, res) => {
 
 exports.create = async (req, res) => {
     try {
-        const createdProduct = await Product.create(req.body);
+        const createdProduct = await Product.create(req.body, { new: true }).populate("categoryId").populate("brandId").populate("createdAdmin");
         res.json({ status: true, result: createdProduct });
     } catch (err) {
         res.json({ status: false, message: err });
@@ -31,7 +31,7 @@ exports.create = async (req, res) => {
 exports.update = async (req, res) => {
     const { _id } = req.params;
     try {
-        const updatedProduct = await Product.findByIdAndUpdate({ _id }, req.body, { new: true, });
+        const updatedProduct = await Product.findByIdAndUpdate({ _id }, req.body, { new: true, }).populate("categoryId").populate("brandId").populate("createdAdmin");
         res.json({ status: true, result: updatedProduct });
     } catch (err) {
         res.json({ status: false, message: err });

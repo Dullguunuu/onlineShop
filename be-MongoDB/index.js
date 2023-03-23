@@ -1,4 +1,3 @@
-const port = 6060;
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -7,13 +6,15 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+const port = process.env.PORT;
+
 const menuRoute = require("./routes/menu.route");
 const categoryRoute = require("./routes/category.route");
 const brandRoute = require("./routes/brand.route");
 const adminRoute = require("./routes/admin.route");
 const productRoute = require("./routes/product.route");
 const customerRoute = require("./routes/customer.route");
-// const orderRoute = require("./routes/order.route")
+const orderRoute = require("./routes/order.route")
 
 mongoose
     .connect(process.env.MONGO_DB_URI)
@@ -29,7 +30,7 @@ app.use("/api", brandRoute);
 app.use("/api", adminRoute);
 app.use("/api", productRoute);
 app.use("/api", customerRoute);
-// app.use("/api", orderRoute);
+app.use("/api", orderRoute);
 
 app.get("/api", (req, res) => {
     res.json({ message: "Welcome to Rest API" })

@@ -1,17 +1,17 @@
-const { default: mongoose } = require("mongoose");
+const { default: mongoose, Schema } = require("mongoose");
 
 const productSchema = new mongoose.Schema(
     {
         productName: String,
-        categoryId: String,
-        brandId: String,
+        categoryId: { type: Schema.Types.ObjectId, ref: "Category" },
+        brandId: { type: Schema.Types.ObjectId, ref: "Brand" },
         price: Number,
         salePercent: Number,
         description: String,
         quantity: Number,
         thumbImage: String,
         images: [String],
-        createdUser: String,
+        createdAdmin: { type: Schema.Types.ObjectId, ref: "Admin" },
     },
     { collection: "Products", timestamps: true }
 );

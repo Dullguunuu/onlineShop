@@ -1,21 +1,17 @@
-const { default: mongoose } = require("mongoose");
+const { default: mongoose, Schema } = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
     {
-        customerId: String,
+        customerId: { type: Schema.Types.ObjectId, ref: "Customer" },
         totalPrice: Number,
-        orderedDate: {
-            type: Date,
-            default: Date.now
-        },
         status: String,
         orderDetails: [{
-            productId: String,
+            productId: { type: Schema.Types.ObjectId, ref: "Product" },
             quantity: Number,
             currentPrice: Number,
         },],
     },
-    { collection: "Orders" }
+    { collection: "Orders", timestamps: true }
 );
 
 const Order = mongoose.model("Order", orderSchema);

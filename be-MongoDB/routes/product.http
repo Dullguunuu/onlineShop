@@ -16,18 +16,16 @@ POST http://localhost:6060/api/product
 Content-Type: application/json
 
 {
-    "productName": "",
-    "categoryId": "",
-    "brandId": "",
+    "productName": "test11",
+    "categoryId": "641a9d7760adceff6ea56660",
+    "brandId": "641a9d6260adceff6ea5665b",
     "price": "",
     "salePercent": "",
     "description": "",
     "quantity": "",
     "thumbImage": "",
     "images": [],
-    "updatedDate": "",
-    "createdUser": "",
-    "updatedUser": ""
+    "createdAdmin": "641bb8a9e3b5aa4a75923ad6"
 }
 
 ###
@@ -45,9 +43,7 @@ Content-Type: application/json
     "quantity": "",
     "thumbImage": "",
     "images": [],
-    "createdDate": "",
-    "createdUser": "",
-    "updatedUser": ""
+    "createdAdmin": ""
 }
 
 ###

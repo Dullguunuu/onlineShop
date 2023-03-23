@@ -1,0 +1,50 @@
+###
+
+GET http://localhost:6060/api
+
+###
+
+GET  http://localhost:6060/api/order
+
+###
+
+GET http://localhost:6060/api/order/641bae47401d5df24246d670
+
+###
+
+POST http://localhost:6060/api/order
+Content-Type: application/json
+
+{
+        "customerId": "",
+        "totalPrice": 0,
+        "status": "",
+        "orderDetails": [{
+            "productId": "",
+            "quantity": 0,
+            "currentPrice": 0
+        }, {
+            "productId": "",
+            "quantity": 0,
+            "currentPrice": 0
+        }]
+}
+
+###
+PUT http://localhost:6060/api/order/641bae47401d5df24246d670
+Content-Type: application/json
+
+{
+        "customerId": "",
+        "totalPrice": 0,
+        "status": "test",
+        "orderDetails": [{
+            "productId": "",
+            "quantity": 0,
+            "currentPrice": 0
+        }]
+}
+
+###
+
+DELETE http://localhost:6060/api/order/641bae4e401d5df24246d674
