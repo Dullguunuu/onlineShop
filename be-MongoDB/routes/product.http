@@ -16,7 +16,7 @@ POST http://localhost:6060/api/product
 Content-Type: application/json
 
 {
-    "productName": "test11",
+    "productName": "aasqsssa",
     "categoryId": "641a9d7760adceff6ea56660",
     "brandId": "641a9d6260adceff6ea5665b",
     "price": "",
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:6060/api/product/3a30d8ee-f1b6-49b3-bc2d-49f23673d9b7
+PUT http://localhost:6060/api/product/641bb8dbe3b5aa4a75923ad8
 Content-Type: application/json
 
 {
