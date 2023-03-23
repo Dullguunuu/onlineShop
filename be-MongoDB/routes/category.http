@@ -3,25 +3,26 @@ GET http://localhost:6060/api/category
 
 
 ###
-GET http://localhost:6060/api/category/641920f971024203ed458f3a
+GET http://localhost:6060/api/category/641a9d7760adceff6ea56660
 
 
 ###
 POST http://localhost:6060/api/category
 Content-Type: application/json
 
-{
-  "CategoryName": "Soup Soup"
-}
-
+    {
+        "categoryName": "",
+        "categoryLink": ""
+    }
 
 ###
-PUT http://localhost:6060/api/category/64191d4a2ff572ceddd1133e
+PUT http://localhost:6060/api/category/641a9d7760adceff6ea56660
 Content-Type: application/json
 
-{
-  "CategoryName": "Buuz2"
-}
+    {
+        "categoryName": "a",
+        "categoryLink": ""
+    }
 
 
 ###

@@ -21,8 +21,10 @@ Content-Type: application/json
     "username": "",
     "phone": "",
     "email": "",
+    "likedProducts": [],
     "password": "" 
 }
+
 
 ###
 PUT http://localhost:6060/api/customer/f8364a98-d6f5-4b23-8787-556ca2494ba7
@@ -34,9 +36,9 @@ Content-Type: application/json
     "username": "",
     "phone": "",
     "email": "",
+    "likedProducts": [],
     "password": ""
 }
 
 ###
-
 DELETE http://localhost:6060/api/customer/25fde7a2-eecd-4cf3-9aa6-9ad77099acf9

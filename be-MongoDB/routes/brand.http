@@ -1,0 +1,29 @@
+###
+GET http://localhost:6060/api/brand
+
+
+###
+GET http://localhost:6060/api/brand/641a9d6260adceff6ea5665b
+
+
+###
+POST http://localhost:6060/api/brand
+Content-Type: application/json
+
+    {
+        "brandName": "",
+        "brandLink": ""
+    }
+
+###
+PUT http://localhost:6060/api/brand/641a9d6260adceff6ea5665b
+Content-Type: application/json
+
+    {
+        "brandName": "a",
+        "brandLink": ""
+    }
+
+
+###
+DELETE http://localhost:6060/api/brand/641a9d3f60adceff6ea56655

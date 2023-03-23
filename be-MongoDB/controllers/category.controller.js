@@ -19,7 +19,7 @@ exports.getOne = async (req, res) => {
     }
 };
 
-exports.createCategory = async (req, res) => {
+exports.create = async (req, res) => {
     try {
         const createdCategory = await Category.create(req.body);
         res.json({ status: true, result: createdCategory });
@@ -28,7 +28,7 @@ exports.createCategory = async (req, res) => {
     }
 };
 
-exports.updateCategory = async (req, res) => {
+exports.update = async (req, res) => {
     const { _id } = req.params;
     try {
         const updatedCategory = await Category.findByIdAndUpdate({ _id }, req.body, { new: true, });
@@ -38,7 +38,7 @@ exports.updateCategory = async (req, res) => {
     }
 };
 
-exports.deleteCategory = async (req, res) => {
+exports.delete = async (req, res) => {
     const { _id } = req.params;
     try {
         const deletedCategory = await Category.deleteOne({ _id });

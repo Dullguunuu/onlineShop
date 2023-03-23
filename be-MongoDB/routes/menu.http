@@ -26,7 +26,6 @@ PUT http://localhost:6060/api/menu
 Content-Type: application/json
 
 {
-    "id": "ca001679-53b2-4f4b-9a66-28cbde362b52",
     "menuName": "test3",
     "link": "/test3",
     "position" : "6"

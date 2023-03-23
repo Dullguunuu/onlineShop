@@ -5,8 +5,8 @@ const route = Router();
 
 route.get("/menu", menu.getAll);
 route.get("/menu/:_id", menu.getOne);
-route.post("/menu", menu.createMenu);
-route.put("/menu/:_id", menu.updateMenu);
-route.delete("/menu/:_id", menu.deleteMenu);
+route.post("/menu", menu.create);
+route.put("/menu/:_id", menu.update);
+route.delete("/menu/:_id", menu.delete);
 
 module.exports = route;

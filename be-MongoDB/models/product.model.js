@@ -11,13 +11,9 @@ const productSchema = new mongoose.Schema(
         quantity: Number,
         thumbImage: String,
         images: [String],
-        createdDate: {
-            type: Date,
-            default: Date.now
-        },
         createdUser: String,
     },
-    { collection: "Products" }
+    { collection: "Products", timestamps: true }
 );
 
 const Product = mongoose.model("Product", productSchema);

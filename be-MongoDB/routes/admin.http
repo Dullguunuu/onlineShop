@@ -1,0 +1,44 @@
+###
+http://localhost:6060/api
+
+
+###
+GET http://localhost:6060/api/admin
+
+
+###
+GET http://localhost:6060/api/admin/641a9cb560adceff6ea5664d
+
+
+###
+POST http://localhost:6060/api/admin
+Content-Type: application/json
+
+    {       
+        "firstName": "" ,
+        "lastName": "" ,
+        "userName": "" ,
+        "email": "" ,
+        "phone": 0 ,
+        "image": "" ,
+        "password": ""
+    }
+
+
+###
+PUT http://localhost:6060/api/admin/641a9cb560adceff6ea5664d
+Content-Type: application/json
+
+    {       
+        "firstName": "a" ,
+        "lastName": "" ,
+        "userName": "" ,
+        "email": "" ,
+        "phone": 0 ,
+        "image": "" ,
+        "password": ""
+    }
+
+
+###
+DELETE http://localhost:6060/api/admin/641a9cb560adceff6ea5664d

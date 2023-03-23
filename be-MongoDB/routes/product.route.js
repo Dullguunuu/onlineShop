@@ -5,8 +5,8 @@ const route = Router();
 
 route.get("/product", product.getAll);
 route.get("/product/:_id", product.getOne);
-route.post("/product", product.createProduct);
-route.put("/product/:_id", product.updateProduct);
-route.delete("/product/:_id", product.deleteProduct);
+route.post("/product", product.create);
+route.put("/product/:_id", product.update);
+route.delete("/product/:_id", product.delete);
 
 module.exports = route;
