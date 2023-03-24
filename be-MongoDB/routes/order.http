@@ -16,15 +16,15 @@ POST http://localhost:6060/api/order
 Content-Type: application/json
 
 {
-        "customerId": "",
+        "customerId": "641d01913670953c57f5b95e",
         "totalPrice": 0,
         "status": "",
         "orderDetails": [{
-            "productId": "",
+            "productId": "641bb9722888bb2513eb1266",
             "quantity": 0,
             "currentPrice": 0
         }, {
-            "productId": "",
+            "productId": "641bb9722888bb2513eb1266",
             "quantity": 0,
             "currentPrice": 0
         }]
@@ -35,11 +35,11 @@ PUT http://localhost:6060/api/order/641bae47401d5df24246d670
 Content-Type: application/json
 
 {
-        "customerId": "",
+        "customerId": "641d01913670953c57f5b95e",
         "totalPrice": 0,
-        "status": "test",
+        "status": "test111",
         "orderDetails": [{
-            "productId": "",
+            "productId": "641bb9722888bb2513eb1266",
             "quantity": 0,
             "currentPrice": 0
         }]

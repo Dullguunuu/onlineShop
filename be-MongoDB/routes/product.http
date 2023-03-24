@@ -30,22 +30,22 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:6060/api/product/641bb8dbe3b5aa4a75923ad8
+PUT http://localhost:6060/api/product/641d0b071f674b4422413210
 Content-Type: application/json
 
 {
-    "productName": "a",
-    "categoryId": "",
-    "brandId": "",
+    "productName": "aasqsssa",
+    "categoryId": "641a9d7760adceff6ea56660",
+    "brandId": "641a9d6260adceff6ea5665b",
     "price": "",
     "salePercent": "",
     "description": "",
     "quantity": "",
     "thumbImage": "",
     "images": [],
-    "createdAdmin": ""
+    "createdAdmin": "641bb8a9e3b5aa4a75923ad6"
 }
 
 ###
 
-DELETE http://localhost:6060/api/product/cff7f829-415f-4440-9b7e-df58f3207548
+DELETE http://localhost:6060/api/product/641d0b071f674b4422413210
