@@ -11,17 +11,26 @@ GET http://localhost:6060/api/admin/641a9cb560adceff6ea5664d
 
 
 ###
-POST http://localhost:6060/api/admin
+POST http://localhost:6060/api/admin/register
 Content-Type: application/json
 
     {       
-        "firstName": "" ,
-        "lastName": "" ,
-        "userName": "" ,
-        "email": "" ,
-        "phone": 0 ,
-        "image": "" ,
-        "password": ""
+        "firstName": "aaaa" ,
+        "lastName": "a" ,
+        "userName": "a" ,
+        "email": "aaaaa@gmail.com" ,
+        "phone": 12 ,
+        "image": "a" ,
+        "password": "a"
+    }
+
+###
+POST http://localhost:6060/api/admin/login
+Content-Type: application/json
+
+    {       
+        "email": "aaaaa@gmail.com",
+        "password": "a"
     }
 
 

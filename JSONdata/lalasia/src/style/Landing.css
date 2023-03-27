@@ -1,0 +1,86 @@
+.flex {
+    display: flex;
+}
+
+.flex-d {
+    flex-direction: column;
+}
+
+.align-items {
+    align-items: center;
+}
+
+.justify-content {
+    justify-content: center;
+}
+
+.landingTitle {
+    height: 50vh;
+}
+
+.landingPageTitle {
+    width: 60%;
+    text-align: center;
+}
+
+.landingTitle {
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.landingText {
+    font-size: 18px;
+    font-weight: 200;
+    color: #AFADB5;
+}
+
+.search {
+    height: 84px;
+    width: 810px;
+    font-size: 24px;
+    color: #AFADB5;
+    box-shadow: -2px 0 .6em #AFADB5;
+    border: none;
+}
+
+.searchBtn {
+    width: 170px;
+    height: 54px;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px 46px;
+    background-color: #518581;
+    border: none;
+}
+
+.ourProductSubTitle {
+    color: #FFB23F;
+    font-size: 18px;
+}
+
+.ourProductTitle {
+    color: #151411;
+    font-size: 44px;
+}
+
+.ourProductDesc {
+    color: #AFADB5;
+}
+
+
+/* Testimonials */
+
+.testimonialsTitle {
+    color: #FFB23F;
+    font-size: 18px;
+}
+
+.testimonialsDesc {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.feedbackCard {
+    box-shadow: 0px 4px 100px rgba(175, 173, 181, 0.1);
+    border: none;
+}

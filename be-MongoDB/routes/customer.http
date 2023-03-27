@@ -4,11 +4,37 @@ GET http://localhost:6060/api
 
 ###
 
-GET  http://localhost:6060/api/customer
+GET  http://localhost:6060/api/customer/
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0MjE0NTZmZTI4NjZkM2NmMzA1OWU3ZiIsImZpcnN0TmFtZSI6ImEiLCJsYXN0TmFtZSI6ImEiLCJ1c2VyTmFtZSI6ImEiLCJwaG9uZSI6MTIzLCJlbWFpbCI6ImFhYUBnbWFpbC5jb20iLCJsaWtlZFByb2R1Y3RzIjpbXSwicGFzc3dvcmQiOiIkMmIkMTAkQzNRRGtlRzNiUXR5aHpJYzVyRUlCdW5ock1CR0x5eVhhVndheFBHL1BrQ0tYNlE0U2N2c0MiLCJfX3YiOjB9LCJpYXQiOjE2Nzk5MDIzNjgsImV4cCI6MTY3OTk4ODc2OH0.oBJ2MXMmp6pmSngugnTz8FMUdHwrNgbyfs9WC5fCOUo
+
 
 ###
 
 GET http://localhost:6060/api/customer/f8364a98-d6f5-4b23-8787-556ca2494ba7
+
+###
+
+POST http://localhost:6060/api/customer/register
+Content-Type: application/json
+
+{
+    "firstName": "a",
+    "lastName": "a",
+    "userName": "a",
+    "phone": 123,
+    "email": "aaa@gmail.com",
+    "password": "a" 
+}
+
+###
+
+POST http://localhost:6060/api/customer/login
+Content-Type: application/json
+
+{
+    "email": "aaa@gmail.com",
+    "password": "a"
+}
 
 ###
 
@@ -41,4 +67,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:6060/api/customer/25fde7a2-eecd-4cf3-9aa6-9ad77099acf9
+DELETE http://localhost:6060/api/customer/6421456fe2866d3cf3059e7f

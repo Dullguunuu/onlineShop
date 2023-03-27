@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F9F9F9;
+}
+
+.productDetail-a {
+  text-decoration: none;
+  color: black;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 130%;
+  margin: 0;
+}
+
+.productDetail-a:hover {
+  color: #518581;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-d {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.align-items {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.justify-content {
+  justify-content: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.textCategory {
+  color: #ffb23f;
+}
+
+.Container {
+  width: 1240px;
+}
+
+.containerTitle {
+  height: 300px;
+}
+
+.bigTitle {
+  width: 750px;
+  font-weight: bold;
+  font-size: 60px;
+  text-align: center;
+}
+
+.bigText {
+  width: 800px;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  color: #afadb5;
+  margin-top: 20px;
+}
+
+.productCard {
+  display: grid;
+  column-gap: 50px;
+  row-gap: 50px;
+  grid-template-columns: auto auto auto;
+  margin: 0;
+  padding: 0;
+}
+
+.input {
+  width: 1080px;
+  height: 50px;
+  font-size: 45px;
+  position: absolute;
+  top: 42%;
+  left: 30%;
+}
+
+.input input {
+  width: 200px;
+  height: 50px;
+  font-size: 40px;
+}
+
+.productPageSearch {
+  background: white;
+  height: 84px;
+}
+
+.productPageInput {
+  border: none;
+  width: 80%;
+}
+
+.filterProductBtn {
+  background: white;
+  color: black;
+  height: 84px;
+}
+
+.servicNumbers {
+  color: #518581;
+  font-size: 64px;
+}
+
+.servicTitle {
+  font-size: 1.5rem;
+}
+
+.servicDesc {
+  color: #AFADB5;
+}
+
+.statisticNumbers {
+  color: #151411;
+  font-size: 2.75rem;
+  margin: 0;
+}
+
+.numbersDesc {
+  font-size: 18px;
+  color: #AFADB5;
+}
+
+.aboutUsSubTitle {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.aboutUsSubTitleDesc {
+  color: #AFADB5;
+  font-weight: 500;
+}
+
+.teamMembersName {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.teamMembersPosition {
+  font-weight: 500;
+  color: #AFADB5;
+}
+
+/* Create Login Modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.modal-body {
+  padding: 44px 56px;
+  width: 800px;
+  border-radius: 5px;
+  margin: 100px auto;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  position: relative;
+}
+
+.modal-title {
+  font-size: 32px;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.xButton {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.xButton:hover {
+  background-color: #e6e6e69c;
+}
+
+.Toastify__close-button {
+  width: 30px;
+}
