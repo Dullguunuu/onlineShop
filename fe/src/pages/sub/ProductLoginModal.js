@@ -11,7 +11,7 @@ export default function UserLoginModal({ productModal, setProductModal, productI
     const [loading, setLoading] = useState(false);
 
     function getCategoryData() {
-        fetch("http://localhost:6060/api/category")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/category")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result);
@@ -20,7 +20,7 @@ export default function UserLoginModal({ productModal, setProductModal, productI
     }
 
     function getBrandData() {
-        fetch("http://localhost:6060/api/brand")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/brand")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result);
@@ -29,7 +29,7 @@ export default function UserLoginModal({ productModal, setProductModal, productI
     }
 
     function getUserData() {
-        fetch("http://localhost:6060/api/user")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/user")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result);

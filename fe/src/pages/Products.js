@@ -24,7 +24,7 @@ export default function Products() {
     const [editId, setEditId] = useState("")
 
     function getData() {
-        fetch("http://localhost:6060/api/product")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/product")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result);
@@ -49,7 +49,7 @@ export default function Products() {
         console.log(productItem);
 
         isEdited ?
-            fetch(`http://localhost:6060/api/product/${editId}`, {
+            fetch(`https://onlineshop-backend-mongoose.onrender.com/api/product/${editId}`, {
                 method: "PUT",
                 headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify(productItem)
@@ -63,7 +63,7 @@ export default function Products() {
                     getData();
                 })
             :
-            fetch("http://localhost:6060/api/product", {
+            fetch("https://onlineshop-backend-mongoose.onrender.com/api/product", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(productItem)
@@ -78,7 +78,7 @@ export default function Products() {
     }
 
     function handleDelProduct(id) {
-        fetch(`http://localhost:6060/api/product/${id}`, {
+        fetch(`https://onlineshop-backend-mongoose.onrender.com/api/product/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

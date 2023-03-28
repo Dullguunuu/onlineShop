@@ -15,7 +15,7 @@ export default function Menus() {
     const [editId, setEditId] = useState("");
 
     function getData() {
-        fetch("http://localhost:6060/api/menu")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/menu")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result);
@@ -36,7 +36,7 @@ export default function Menus() {
     function handleMenuSubmit(e) {
         e.preventDefault();
         isedited ?
-            fetch(`http://localhost:6060/api/menu/${editId}`, {
+            fetch(`https://onlineshop-backend-mongoose.onrender.com/api/menu/${editId}`, {
                 method: "PUT",
                 headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify(menuItem)
@@ -49,7 +49,7 @@ export default function Menus() {
                     getData();
                 })
             :
-            fetch("http://localhost:6060/api/menu", {
+            fetch("https://onlineshop-backend-mongoose.onrender.com/api/menu", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(menuItem)
@@ -70,7 +70,7 @@ export default function Menus() {
     }
 
     function handleDelMenu(id) {
-        fetch(`http://localhost:6060/api/menu/${id}`, {
+        fetch(`https://onlineshop-backend-mongoose.onrender.com/api/menu/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

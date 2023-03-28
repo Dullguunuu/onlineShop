@@ -4,7 +4,7 @@ export default function Customers() {
     const [tableData, setTableData] = useState([])
 
     function getData() {
-        fetch("http://localhost:6060/api/customer")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/customer")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result);
@@ -17,7 +17,7 @@ export default function Customers() {
     }, [])
 
     function handleDelCustomer(id) {
-        fetch(`http://localhost:6060/api/customer/${id}`, {
+        fetch(`https://onlineshop-backend-mongoose.onrender.com/api/customer/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

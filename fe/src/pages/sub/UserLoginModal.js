@@ -21,7 +21,7 @@ export default function UserLoginModal({ modal, setModal, getData }) {
     function handleCustomerSubmit(e) {
         e.preventDefault()
 
-        fetch("http://localhost:6060/api/user", {
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/user", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userItem)

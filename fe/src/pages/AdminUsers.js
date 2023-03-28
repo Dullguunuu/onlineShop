@@ -19,7 +19,7 @@ export default function AdminUsers() {
     const [editId, setEditId] = useState("")
 
     function getData() {
-        fetch("http://localhost:6060/api/user")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/user")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result);
@@ -44,7 +44,7 @@ export default function AdminUsers() {
         console.log(userItem);
 
         isEdited ?
-            fetch(`http://localhost:6060/api/user/${editId}`, {
+            fetch(`https://onlineshop-backend-mongoose.onrender.com/api/user/${editId}`, {
                 method: "PUT",
                 headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify(userItem)
@@ -58,7 +58,7 @@ export default function AdminUsers() {
                     getData();
                 })
             :
-            fetch("http://localhost:6060/api/user", {
+            fetch("https://onlineshop-backend-mongoose.onrender.com/api/user", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(userItem)
@@ -73,7 +73,7 @@ export default function AdminUsers() {
     }
 
     function handleDelUser(id) {
-        fetch(`http://localhost:6060/api/user/${id}`, {
+        fetch(`https://onlineshop-backend-mongoose.onrender.com/api/user/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

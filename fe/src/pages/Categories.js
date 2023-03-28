@@ -13,7 +13,7 @@ export default function Categories() {
     const [categoryId, setCategoryId] = useState("")
 
     function getData() {
-        fetch("http://localhost:6060/api/category")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/category")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result)
@@ -35,7 +35,7 @@ export default function Categories() {
         e.preventDefault();
 
         isedited ?
-            fetch(`http://localhost:6060/api/category/${categoryId}`, {
+            fetch(`https://onlineshop-backend-mongoose.onrender.com/api/category/${categoryId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(cateItem)
@@ -48,7 +48,7 @@ export default function Categories() {
                     getData();
                 })
             :
-            fetch("http://localhost:6060/api/category", {
+            fetch("https://onlineshop-backend-mongoose.onrender.com/api/category", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(cateItem)
@@ -62,7 +62,7 @@ export default function Categories() {
     }
 
     function handleDelCategory(id) {
-        fetch(`http://localhost:6060/api/category/${id}`, {
+        fetch(`https://onlineshop-backend-mongoose.onrender.com/api/category/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

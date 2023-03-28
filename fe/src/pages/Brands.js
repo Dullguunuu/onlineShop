@@ -13,7 +13,7 @@ export default function Brands() {
     const [brandId, setBrandId] = useState("")
 
     function getData() {
-        fetch("http://localhost:6060/api/brand")
+        fetch("https://onlineshop-backend-mongoose.onrender.com/api/brand")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.result)
@@ -35,7 +35,7 @@ export default function Brands() {
         e.preventDefault();
 
         isedited ?
-            fetch(`http://localhost:6060/api/brand/${brandId}`, {
+            fetch(`https://onlineshop-backend-mongoose.onrender.com/api/brand/${brandId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(brandItem)
@@ -48,7 +48,7 @@ export default function Brands() {
                     getData();
                 })
             :
-            fetch("http://localhost:6060/api/brand", {
+            fetch("https://onlineshop-backend-mongoose.onrender.com/api/brand", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(brandItem)
@@ -62,7 +62,7 @@ export default function Brands() {
     }
 
     function handleDelBrand(id) {
-        fetch(`http://localhost:6060/api/brand/${id}`, {
+        fetch(`https://onlineshop-backend-mongoose.onrender.com/api/brand/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
