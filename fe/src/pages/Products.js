@@ -51,7 +51,7 @@ export default function Products() {
         isEdited ?
             fetch(`https://onlineshop-backend-mongoose.onrender.com/api/product/${editId}`, {
                 method: "PUT",
-                headers: { 'Content-type': 'application/json' },
+                headers: { 'Content-type': 'application/json', 'x-access-token': '' },
                 body: JSON.stringify(productItem)
             })
                 .then((res) => res.json())

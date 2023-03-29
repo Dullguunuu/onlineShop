@@ -10,12 +10,13 @@ import AdminUsers from './pages/AdminUsers';
 import Orders from './pages/Orders';
 import Sellers from './pages/Sellers';
 import Customers from './pages/Customers';
+import AdminLogin from './pages/AdminLogin';
 
 function App() {
   return (
     <div>
-      <Routes></Routes>
       <Routes>
+        <Route path="/" element={<AdminLogin />} />
         <Route path="/admin/*" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="menus" element={<Menus />} />
